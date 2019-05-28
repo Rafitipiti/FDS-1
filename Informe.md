@@ -29,6 +29,8 @@ _Definir Dataframe, árboles binarios_
 
 _Dataframe, Row, Column_
 
+![Diagrama de Clases](Diagramadeclases.png)
+
 ### Cronograma de trabajo
 
 _Referencia a Milestones_
