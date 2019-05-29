@@ -27,8 +27,8 @@ _Definir Dataframe, árboles binarios_
 
 _Dataframe:_
 
-Los dataframes son una clase de objetos especiales en R (lenguaje de programación estadistico/matemático). Usualemente cuando se realizan estudios estadísticos sobre un conjunto de objetos de una 'muestra', la información se organiza en una hoja de datos o cuadro de datos (dataframe por su traducción); en la cual cada fila corresponde a un objeto y cada columna a una variable de este mismo. 
-Como se puede apreciar su estructura es muy similar a la de una matriz, no obstante un problema que surge al usar matrices es el solo poder usar valores númericos, mientras que usando Dataframe podemos usar datos alfanuméricos.
+Los dataframes son una clase de objetos especiales en R (lenguaje de programación estadístico/matemático). Usualmente cuando se realizan estudios estadísticos sobre un conjunto de objetos de una 'muestra', la información se organiza en una hoja de datos o cuadro de datos (dataframe por su traducción); en la cual cada fila corresponde a un objeto y cada columna a una variable de este mismo. 
+Como se puede apreciar su estructura es muy similar a la de una matriz, no obstante, un problema que surge al usar matrices es el solo poder usar valores numéricos, mientras que usando Dataframe podemos usar datos alfanuméricos.
 
 _Árboles Binarios:_
 
