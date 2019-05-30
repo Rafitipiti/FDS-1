@@ -19,7 +19,11 @@ Tenemos bibliotecas que nos permiten manejar datos de gran magnitud. El problema
 
 _Objetivo general: responder al problema y le da solución_ 
 
+Nuestro objetivo general es construir una biblioteca en c++ con base en los conceptos y a la teoría estudiada a lo largo del curso.
+
 _Objetivos específicos: analizar, diseñar, desarrollar solución_
+
+Nuestro objetivo específico es, mediante el análisis de la información solicitada, construir una biblioteca en c++ para el manejo de dataframes, que importe datos, maneje un indexado por columnas, permita seleccionar y acceder a estos elementos, filtre información por columnas, los ordene y los exporte a archivos planos.
 
 ### Marco conceptual
 
