@@ -30,8 +30,19 @@ _Dataframe:_
 Los dataframes son una clase de objetos especiales en R (lenguaje de programación estadístico/matemático). Usualmente cuando se realizan estudios estadísticos sobre un conjunto de objetos de una 'muestra', la información se organiza en una hoja de datos o cuadro de datos (dataframe por su traducción); en la cual cada fila corresponde a un objeto y cada columna a una variable de este mismo. 
 Como se puede apreciar su estructura es muy similar a la de una matriz, no obstante, un problema que surge al usar matrices es el solo poder usar valores numéricos, mientras que usando Dataframe podemos usar datos alfanuméricos.
 
-_Árboles Binarios:_
+_Arboles Binarios:_
 
+_Arbol_
+
+Es una estructura de dato no lineal, ya que cada elemento apunto a uno o mas elementos del mismo tipo. El elemento que apunta se le conoce como padre, mientras que el elemento apuntado se le conoce como hijo. Todo elemento es hijo de un padre, excepto la raiz, primer elemento de la estructura.
+
+_Arbol Binario_
+
+Un arbol binario es aquel arbol donde cada elemento apunta como máximo a 2 elementos, un hijo derecho y un hijo izquierdo. 
+
+_Arbol Binario de Busqueda_
+
+Arbol binario de busqueda (ABB), es un arbol binario en el cual para todo elemento, aquellos elementos que sean mayores a él, se ubican en una rama derecha, mientras los elementos menores en su rama izquierda. Cada elemento se almacena solo una vez, por lo cual no existen elementos que se repitan. 
 
 ### Diagrama de clases (alto nivel)
 
