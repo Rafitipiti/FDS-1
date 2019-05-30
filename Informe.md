@@ -52,7 +52,7 @@ _Árbol Binario de Busqueda_
 
 _Dataframe, Row, Column_
 
-![Diagrama de Clases](Diagramadeclases.png)
+![Diagrama de Clases](dclases.png)
 
 ### Cronograma de trabajo
 
