@@ -46,49 +46,45 @@ _Dataframe, Row, Column_
 
 ### Cronograma de trabajo
 
-_Referencia a Milestones_
-
 Hemos dividido nuestras tareas en tres hitos: 
-
 
 Hito 1: 
 
--Crear repositorio
+    -Crear repositorio
 
--Crear proyecto
+    -Crear proyecto
 
--Editar informe
+    -Editar informe
 
--Intro
+    -Intro
 
--Objetivos
+    -Objetivos
 
--Marco conceptual
+    -Marco conceptual
 
--Diagrama de clases
+    -Diagrama de clases
 
-(Clases: Dataframe, fila, columna, indice, gestor de archivos)
+    (Clases: Dataframe, fila, columna, indice, gestor de archivos)
 
--Cronograma
+    -Cronograma
 
-yuml.me (para subir diagrama)
-
+    yuml.me (para subir diagrama)
 
 Hito 2:
 
--Implementar clases
+    -Implementar clases
 
--Designar dependencia: 
+    -Designar dependencia: 
 
     -Definir métodos
     
     -Definir diagrama de clases de manera general
     
--Implementar Clase 1 hasta Clase n
+    -Implementar Clase 1 hasta Clase n
 
--Diseño de UI (Interfaz) *
+    -Diseño de UI (Interfaz) *
 
--Diseño de TDA's (Tipos de datos abstractos)
+    -Diseño de TDA's (Tipos de datos abstractos)
 
     -TDA 1 (bintree)
     
@@ -96,18 +92,17 @@ Hito 2:
     
     -TDA 3 (pila)
     
--Diagrama de componentes
+    -Diagrama de componentes
 
--Diagrama de clase de segundo nivel (bajo nivel)
+    -Diagrama de clase de segundo nivel (bajo nivel)
 
-Aprendizajes necesarios: hasta semana 13
-
+    Aprendizajes necesarios: hasta semana 13
 
 Hito 3:
 
--Elaboración del video
+    -Elaboración del video
 
--Elaboración del PPT
+    -Elaboración del PPT
 
--Terno para la presentación
+    -Terno para la presentación
 
