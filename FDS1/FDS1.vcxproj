@@ -126,6 +126,12 @@
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Columm.h" />
+    <ClInclude Include="DataFrame.h" />
+    <ClInclude Include="Controladora.h" />
+    <ClInclude Include="Row.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

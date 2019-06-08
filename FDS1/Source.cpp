@@ -1,7 +1,15 @@
-
 #include <iostream>
-using namespace std;
+#include <conio.h>
+#include "DataFrame.h"
+#include "Controladora.h"
 
-int main() {
-	cout << " cc" << endl;
+using namespace std;
+using namespace System;
+
+void main() {
+
+
+
+
+	_getch();
 }
