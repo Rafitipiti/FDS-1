@@ -60,6 +60,7 @@ public:
 				if (!decimales.empty()) {
 					for (int i = 0; i < decimales.size(); i++) {
 						cout << decimales[i] << endl;
+
 					}
 				}
 
