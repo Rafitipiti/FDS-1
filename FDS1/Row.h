@@ -4,11 +4,11 @@
 
 using namespace std;
 
-template<typename T>
+
 class Row {
 private:
 
-	vector<T> datos;
+	vector<string> datos;
 
 
 };

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-template<typename T>
+
 class DataFrame {
 private:
 
@@ -15,8 +15,8 @@ private:
 
 public:
 
-	void filtrarDatos();
-	void ordenarDatos();
-	void editarDatos();
+	void filtrarDatos(){}
+	void ordenarDatos(){}
+	void editarDatos(){}
 
 };
