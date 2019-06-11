@@ -32,5 +32,8 @@
     <ClInclude Include="Controladora.h">
       <Filter>Archivos de recursos</Filter>
     </ClInclude>
+    <ClInclude Include="Nodos.h">
+      <Filter>Archivos de recursos</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

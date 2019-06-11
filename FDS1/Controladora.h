@@ -67,7 +67,16 @@ public:
 		}
 	}
 	void escribirDatos() {}
-	void mostrarDatafraime() {}
+	void mostrarDataframe() {
+	
+	
+	}
+	void filtrar(char a, string b, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
+		vector<Row> filas = a->filtrarDatos(a, b, f);
+		for (int i = 0; i < filas.size(); i++) {
+			b->añadirFila(filas[i]);
+		}
+	}
 
 
 };
