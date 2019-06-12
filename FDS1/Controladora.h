@@ -4,6 +4,8 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include "Column.h"
+#include "Row.h"
 
 using namespace std;
 
@@ -71,8 +73,8 @@ public:
 	
 	
 	}
-	void filtrar(char a, string b, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
-		vector<Row> filas = a->filtrarDatos(a, b, f);
+	void filtrar(char a1, string b1, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
+		vector<Row> filas = a->filtrarDatos(a1, b1, f);
 		for (int i = 0; i < filas.size(); i++) {
 			b->añadirFila(filas[i]);
 		}

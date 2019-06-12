@@ -1,27 +1,30 @@
 #pragma once
-
 #include <vector>
-
+#include <string>
 using namespace std;
 
+class Column {
+public:
+	Column() {
 
-class Columm {
+	}
 private:
 	struct Node {
 		string elem;
 	};
-	vector<string> datos;
+	vector<Node*> datos;
 
 	class iterator {
-
+		Node* ptr;
 		unsigned int pos;
+	
 	public:
 		iterator(unsigned int pos) : pos(pos) {}
 		iterator() : ptr(nullptr), pos(0) {}
 		bool operator != (iterator other) {
 			return this->pos != other.pos;
 		}
-		T operator *() {
+		string operator *(vector<Node*> datos) {
 			return datos[pos]->elem;
 		}
 		void operator ++() {
@@ -34,9 +37,9 @@ public:
 		return iterator(0);
 	}
 	iterator end() {
-		return iterator(size);
+		return iterator(datos.size());
 	}
-	void añadirDatos(Node a) {
+	void añadirDatos(Node* a) {
 		datos.push_back(a);
 	}
 

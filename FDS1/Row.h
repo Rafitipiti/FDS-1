@@ -4,27 +4,31 @@
 
 using namespace std;
 
-
 class Row {
+public:
+	Row() {
 
+	}
 private:
 	struct Node {
 		string elem;
 
 	};
-	vector<Node> datos;
+	vector<Node*> datos;
 	int size;
+
 	class iterator {
-		
-		unsigned int pos;
+	unsigned int pos;
+	Node* ptr;
 	public:
+	
 		iterator(unsigned int pos) : pos(pos) {}
 		iterator() : ptr(nullptr), pos(0) {}
 		bool operator != (iterator other) {
 			return this->pos != other.pos;
 		}
-		T operator *() {
-			return datos[pos]->elem;
+		string operator *(vector<Node> datos) {
+			return datos[pos].elem;
 		}
 		void operator ++() {
 			pos++;
@@ -36,13 +40,8 @@ private:
 	iterator end() {
 		return iterator(size);
 	}
-
-
-	Node getAt(int a) {
+	Node* getAt(int a) {
 		return datos[a];
-	}
-	string getE(int a) {
-		return datos[a].elem;
 	}
 
 };

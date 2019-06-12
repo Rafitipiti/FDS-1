@@ -1,11 +1,8 @@
 #pragma once
-
-#include "Columm.h"
+#include "Column.h"
 #include "Row.h"
 #include <vector>
-
 using namespace std;
-
 
 class DataFrame {
 private:
@@ -14,7 +11,6 @@ private:
 	int elementos;
 
 public:
-
 	void añadirFila(Row a) {
 		Filas.push_back(a);
 		for (int i = 0; i < n; i++) {

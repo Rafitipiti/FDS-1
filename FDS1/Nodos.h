@@ -4,6 +4,10 @@ using namespace std;
 
 //clase base para el tipo de dato por columnas
 class Node {
+public: 
+	Node() {
+
+	}
 	//int tipo;
 	
 };
@@ -31,6 +35,7 @@ class NodeString : public Node {
 		return elem;
 	}
 };
+
 class NodeFloat : public Node {
 	float elem;
 	NodeFloat(float elem) : elem(elem) {	}
