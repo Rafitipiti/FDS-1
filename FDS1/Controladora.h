@@ -89,10 +89,7 @@ public:
 		}
 	}
 	void escribirDatos() {}
-	void mostrarDataframe() {
 
-
-	}
 	void filtrar(char a1, string b1, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
 	    vector<Row> filas = a->filtrarDatos(a1, b1, f);
 		cout << filas.size() << endl;
