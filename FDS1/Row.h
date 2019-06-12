@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include "Nodos.h"
 
 using namespace std;
 
@@ -10,26 +11,26 @@ public:
 	Row() {
 
 	}
+	
 private:
-	struct Node {
-		string elem;
-
-	};
+	
+	int tipo;
+	int size = 0;
 	vector<Node*> datos;
-	int size;
+	
 
-	class iterator {
+class iterator {
 	unsigned int pos;
-	Node* ptr;
+	vector<Node*> f;
 	public:
 	
-		iterator(unsigned int pos) : pos(pos) {}
-		iterator() : ptr(nullptr), pos(0) {}
+		iterator(vector<Node*> f, unsigned int pos) : f(f),pos(pos) {}
+		iterator(vector<Node*> f) :  pos(0) {}
 		bool operator != (iterator other) {
 			return this->pos != other.pos;
 		}
-		string operator *(vector<Node> datos) {
-			return datos[pos].elem;
+		string operator *() {
+			return f[pos]->getElem();
 		}
 		void operator ++() {
 			pos++;
@@ -38,13 +39,19 @@ private:
 
 public:
 	iterator begin() {
-		return iterator( 0);
+		return iterator(datos, 0);
 	}
 	iterator end() {
-		return iterator(size);
+		return iterator(datos,datos.size());
 	}
-	Node* getAt(int a) {
-		return datos[a];
+	vector<Node*> getDatos() {
+		return datos;
 	}
-
+	void añadirDatos(Node* f) {
+		datos.push_back(f);
+		
+	}
+	void clear() {
+		datos.clear();
+	}
 };

@@ -2,6 +2,7 @@
 
 #include "DataFrame.h"
 #include <fstream>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include "Column.h"
@@ -17,10 +18,50 @@ private:
 	DataFrame* b;
 
 public:
-	Controladora() {}
+	
+	Controladora() {
+		this->a = new DataFrame();
+		this->b = new DataFrame();
+	}
 
+	void leerDatosString() {
+		
+		Row me;
+		ifstream f("archivo.txt");
+		string line, num;
+		if (!f.is_open()) {
+			cout << "El archivo no se logro abrir " << endl;
+		}
+		else {
+			while (getline(f,line)) {
+				stringstream ss(line);
+				me.clear();
+				while (getline(ss, num, ',')) {
+					Node* q = new Node(num);
+					//cout << num << endl;
+					me.añadirDatos(q);
+				}
+				//for (auto a : me) cout << a << " ";
+				//cout << endl;
+				a->añadirFila(me);
+			}
+		}
+	}
+	void mostrar(int f) {
+		if (f == 1) mostrarDataFrame(a);
+		else mostrarDataFrame(b);
+	}
+	void mostrarDataFrame( DataFrame* w) {
+		for (auto r : *w) {
+			for (auto p : r) {
+				cout << p << " ";
+			}
+			cout << endl;
+		}
+
+	}
 	void leerDatos() {
-		ifstream f("datos.txt");
+		ifstream f("archivo.txt");
 		string line, num;
 		if (!f.is_open()) {
 			cout << "El archivo no se logro abrir " << endl;
@@ -52,12 +93,20 @@ public:
 
 
 	}
-	//void filtrar(char a1, string b1, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
-	//    vector<Row> filas = a->filtrarDatos(a1, b1, f);
-	//    for (int i = 0; i < filas.size(); i++) {
-	//        b->añadirFila(filas[i]);
-	//    }
-	//}
+	void filtrar(char a1, string b1, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
+	    vector<Row> filas = a->filtrarDatos(a1, b1, f);
+		cout << filas.size() << endl;
+		for (auto w : filas) {
+			for (auto rf : w) {
+				cout << rf << " ";
+			}
+			cout << endl;
+		}
+		b->clear();
+	    for (int i = 0; i < filas.size(); i++) {
+	        b->añadirFila(filas[i]);
+	    }
+	}
 
 
 };

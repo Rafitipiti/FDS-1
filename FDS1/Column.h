@@ -1,46 +1,51 @@
 #pragma once
 #include <vector>
 #include <string>
+#include "Nodos.h"
 using namespace std;
 
-class Column {
+class Column  {
 public:
 	Column() {
 
 	}
 private:
-	struct Node {
-		string elem;
-	};
+	
 	vector<Node*> datos;
 
 	class iterator {
-		Node* ptr;
 		unsigned int pos;
-	
+		vector<Node*> f;
 	public:
-		iterator(unsigned int pos) : pos(pos) {}
-		iterator() : ptr(nullptr), pos(0) {}
+
+		iterator(vector<Node*> f, unsigned int pos) : f(f), pos(pos) {}
+		iterator(vector<Node*> f) : pos(0) {}
 		bool operator != (iterator other) {
 			return this->pos != other.pos;
 		}
-		string operator *(vector<Node*> datos) {
-			return datos[pos]->elem;
+		string operator *() {
+			return f[pos]->getElem();
 		}
 		void operator ++() {
 			pos++;
 		}
 	};
-	
+
 public:
 	iterator begin() {
-		return iterator(0);
+		return iterator(datos, 0);
 	}
 	iterator end() {
-		return iterator(datos.size());
+		return iterator(datos, datos.size());
 	}
 	void añadirDatos(Node* a) {
+
 		datos.push_back(a);
 	}
-
+	vector<Node*> getDatos() {
+		return datos;
+	}
+	void clear() {
+		datos.clear();
+	}
 };
