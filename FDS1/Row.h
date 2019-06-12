@@ -34,6 +34,7 @@ private:
 			pos++;
 		}
 	};
+
 public:
 	iterator begin() {
 		return iterator( 0);
