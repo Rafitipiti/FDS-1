@@ -48,11 +48,12 @@ void showM() {
 	cout << "                         *                                 MENU                                    *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         *        1.- Importar                                                     *" << endl;
-	cout << "                         *        2.- mostrar1                                                      *" << endl;
+	cout << "                         *        2.- mostrar1                                                     *" << endl;
 	cout << "                         *        3.- Exportar                                                     *" << endl;
 	cout << "                         *        4.- Filtrar                                                      *" << endl;
-	cout << "                         *        5.- mostrar2                                                  *" << endl;
+	cout << "                         *        5.- mostrar2                                                     *" << endl;
 	cout << "                         *        6.- Ordenar columna                                              *" << endl;
+	cout << "                         *        7.- Salir                                                        *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
 }
@@ -69,6 +70,7 @@ void main() {
 		case 4:  mostrarm2(control); opcion = 0; break;
 		case 5:; control->mostrar(2); opcion = 0; break;
 		case 6:; opcion = 0; break;
+		case 7:; exit(1); break;
 		default: opcion = 0; break;
 		}
 	} while (opcion == 0);

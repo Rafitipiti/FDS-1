@@ -39,7 +39,6 @@ public:
 		return iterator(datos, datos.size());
 	}
 	void añadirDatos(Node* a) {
-
 		datos.push_back(a);
 	}
 	vector<Node*> getDatos() {
