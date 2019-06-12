@@ -30,13 +30,14 @@ public:
 		else {
 			while (f >> line){
 				stringstream ss(line);
-				getline(ss, num);
-				if ((num.c_str()[0] >= 65 && num.c_str()[0] <= 90)||(num.c_str()[0] >= 97 && num.c_str()[0] <= 122)){
+				getline(ss, num, ',');
+				//definetype
+				if ((num[0] >= 65 && num[0] <= 90)||(num[0] >= 97 && num[0] <= 122)){
 					cout << "Es un string" << endl;
-					palabras.push_back(num.c_str());
+					palabras.push_back(num);
 				}
 				else{
-					double aux = stoi(num.c_str());
+					int aux = stoi(num);
 					int aux2 = int(aux);
 					if (aux != (double)aux2) {
 						cout << "Es un double" << endl;
