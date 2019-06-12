@@ -21,7 +21,7 @@ void mostrarm2() {
 	cout << "                         *         3.- Igual a.                                                    *" << endl;
 	cout << "                         *         4.- Inicia con.                                                 *" << endl;
 	cout << "                         *         5.- Finaliza con.                                               *" << endl;
-	cout << "                         *         6.- Está contenido en.                                          *" << endl;
+	cout << "                         *         6.- Esta contenido en.                                          *" << endl;
 	cout << "                         *         7.- No está contenido en.                                       *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
@@ -42,6 +42,7 @@ void mostrarm2() {
 }
 
 void main() {
+	Controladora* control;
 	int opcion = 0;
 	cout << endl << endl << endl << endl << endl;
 	cout << "                         ***************************************************************************" << endl;
@@ -59,7 +60,7 @@ void main() {
 	do {
 		cin >> opcion;
 		switch (opcion) {
-		case 1:; opcion = 0; break;
+		case 1:control->leerDatos(); opcion = 0; break;
 		case 2:; opcion = 0; break;
 		case 3:; opcion = 0; break;
 		case 4: Console::Clear(); mostrarm2(); opcion = 0; break;
@@ -68,8 +69,7 @@ void main() {
 		default: opcion = 0; break;
 		}
 	} while (opcion == 0);
-	
-	Controladora *control;
+
 	control->leerDatos();
 
 	_getch();
