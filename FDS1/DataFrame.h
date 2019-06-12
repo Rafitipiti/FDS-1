@@ -9,7 +9,7 @@ private:
 	vector<Row> Filas;
 	vector<Column> Columnas;
 	int elementos;
-
+	int n;
 public:
 	void añadirFila(Row a) {
 		Filas.push_back(a);
@@ -23,9 +23,9 @@ public:
 	void ordenarDatos(){}
 	void editarDatos(){}
 
-	vector<Row> filtrarDatos(char a, string b, int f) { // f sera la columnas lo remplazaremos por un string mas adelante
+	vector<Row> filtrarDatos(char c, string b, int f) { // f sera la columnas lo remplazaremos por un string mas adelante
 		vector<Row> filas2;
-		switch (a) {
+		switch (c) {
 		case '>':
 			int a = stoi(b);
 			for (int i = 0; i < n; i++) {
