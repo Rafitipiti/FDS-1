@@ -133,29 +133,29 @@ void showM() {
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
 }
-//void main() {
-//	Controladora* control = new Controladora();
-//	int opcion = 0;
-//	showM();
-//	do {
-//		cin >> opcion;
-//		switch (opcion) {
-//		case 1:control->leerDatosString(); opcion = 0; break;
-//		case 2:; control->mostrar(1); opcion = 0; break;
-//		case 3:; opcion = 0; break;
-//		case 4:  mostrarFiltro(control); opcion = 0; break;
-//		case 5:; control->mostrar(2); opcion = 0; break;
-//		case 6:; opcion = 0; break;
-//		case 7:; exit(1); break;
-//		default: opcion = 0; break;
-//		}
-//	} while (opcion == 0);
-//
-//	control->leerDatos();
-//
-//	_getch();
-//}
+void main() {
+	Controladora* control = new Controladora();
+	int opcion = 0;
+	showM();
+	do {
+		cin >> opcion;
+		switch (opcion) {
+		case 1:control->leerDatosString(); opcion = 0; break;
+		case 2:; control->mostrar(1); opcion = 0; break;
+		case 3:; opcion = 0; break;
+		case 4:  mostrarFiltro(control); opcion = 0; break;
+		case 5:; control->mostrar(2); opcion = 0; break;
+		case 6:; opcion = 0; break;
+		case 7:; exit(1); break;
+		default: opcion = 0; break;
+		}
+	} while (opcion == 0);
 
+	control->leerDatos();
+
+	_getch();
+}
+/*
 void main() {
 	Controladora* control = new Controladora();
 	int opcion = 0;
@@ -177,3 +177,4 @@ void main() {
 
 	_getch();
 }
+*/

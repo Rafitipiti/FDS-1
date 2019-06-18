@@ -35,6 +35,7 @@ public:
 		else {
 			while (getline(f,line)) {
 				stringstream ss(line);
+				//hola
 				me.clear();
 				while (getline(ss, num, ',')) {
 					Node* q = new Node(num);
