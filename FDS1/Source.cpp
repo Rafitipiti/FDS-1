@@ -129,7 +129,8 @@ void showM() {
 	cout << "                         *        3.- Listar Dataframe                                             *" << endl;
 	cout << "                         *        4.- Crear Dataframe                                              *" << endl;
 	cout << "                         *        5.- Indexar Dataframe                                            *" << endl;
-	cout << "                         *        6.- Salir                                                        *" << endl;
+	cout << "                         *        6.- Escribir Dataframe B                                         *" << endl;
+	cout << "                         *        7.- Salir                                                        *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
 }
@@ -141,12 +142,12 @@ void main() {
 		cin >> opcion;
 		switch (opcion) {
 		case 1:control->leerDatosString(); opcion = 0; break;
-		case 2:; control->mostrar(1); opcion = 0; break;
-		case 3:; opcion = 0; break;
-		case 4:  mostrarFiltro(control); opcion = 0; break;
-		case 5:; control->mostrar(2); opcion = 0; break;
-		case 6:; opcion = 0; break;
-		case 7:; exit(1); break;
+		case 2:control->mostrar(1); opcion = 0; break;
+		case 3:opcion = 0; break;
+		case 4:mostrarFiltro(control); opcion = 0; break;
+		case 5:control->mostrar(2); opcion = 0; break;
+		case 6:escribirDatosb(); opcion = 0; break;
+		case 7:exit(1); break;
 		default: opcion = 0; break;
 		}
 	} while (opcion == 0);

@@ -89,7 +89,19 @@ public:
 			cout << endl;
 		}
 	}
-	void escribirDatos() {}
+	void escribirDatosb() {
+		vector<Row> aux = b->getfilas;
+		for (int i = 0; i < aux.size(); i++) {
+			Row auxi = aux[i];
+			vector<Node*> auxiliar = auxi.getDatos();
+			for (int j = 0; j < auxiliar.size(); j++) {
+				Node* naux = auxiliar[j];
+				ofstream archi2("archivo2.txt");
+				archi2 << naux->getElem();
+				archi2 << endl;
+			}
+		}
+	}
 
 	void filtrar(char a1, string b1, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
 	    vector<Row> filas = a->filtrarDatos(a1, b1, f);
