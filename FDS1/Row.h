@@ -3,55 +3,28 @@
 #include <vector>
 #include <string>
 #include "Nodos.h"
+#include <map>
+#include "Column.h"
+
 
 using namespace std;
 
 class Row {
-public:
-	Row() {
-
-	}
 	
+public:
+	Row(map<string, Column*>* cols, int ind) : cols(cols), indice(ind) {
+	
+	}
+	string getData(string name) {
+		return (*cols)[name]->getDatos(indice);
+	}
 private:
-	
-	int tipo;
-	int size = 0;
-	vector<Node*> datos;
+	map<string, Column*>*cols;
+	int indice;
 	
 
-class iterator {
-	unsigned int pos;
-	vector<Node*> f;
-	public:
-	
-		iterator(vector<Node*> f, unsigned int pos) : f(f),pos(pos) {}
-		iterator(vector<Node*> f) :  pos(0) {}
-		bool operator != (iterator other) {
-			return this->pos != other.pos;
-		}
-		string operator *() {
-			return f[pos]->getElem();
-		}
-		void operator ++() {
-			pos++;
-		}
-	};
+
 
 public:
-	iterator begin() {
-		return iterator(datos, 0);
-	}
-	iterator end() {
-		return iterator(datos,datos.size());
-	}
-	vector<Node*> getDatos() {
-		return datos;
-	}
-	void añadirDatos(Node* f) {
-		datos.push_back(f);
-		
-	}
-	void clear() {
-		datos.clear();
-	}
+	
 };

@@ -22,26 +22,38 @@ public:
 	}
 
 	void leerDatosString() {
-		DataFrame* a = new DataFrame;
-		Row me;
+		
+		vector<string> me;
 		ifstream f("archivo.txt");
 		string line, num;
+		vector<string> nomb;
+		bool nombres = false;
+		DataFrame* a = new DataFrame();
 		if (!f.is_open()) {
 			cout << "El archivo no se logro abrir " << endl;
 		}
 		else {
 			while (getline(f,line)) {
-				stringstream ss(line);
-				//hola
-				me.clear();
-				while (getline(ss, num, ',')) {
-					Node* q = new Node(num);
-					//cout << num << endl;
-					me.añadirDatos(q);
+				if (nombres == false) {
+					stringstream ss(line);
+					while (getline(ss, num, ',')) {
+						nomb.push_back(num);
+					}
+					nombres = true;
+					a->setNombres(nomb);
 				}
-				//for (auto a : me) cout << a << " ";
-				//cout << endl;
-				a->añadirFila(me);
+				else {
+					
+					stringstream ss(line);
+					me.clear();
+					while (getline(ss, num, ',')) {
+						me.push_back(num);
+					}
+					vector<string > ay = a->getNombres();
+					
+					a->añadirFila(me);
+					
+				}
 			}
 		}
 		DataFrames.push_back(a);
@@ -55,14 +67,16 @@ public:
 			cout <<"-DataFrame "<<i << "" << endl;
 		}
 	}
+	
 	void mostrarDataFrame( DataFrame* w) {
+		vector<string> a = w->getNombres();
+		for (auto f : a) cout << f << " ";
+		cout << endl;
 		for (auto r : *w) {
-			for (auto p : r) {
-				cout << p << " ";
-			}
+			for(int i = 0; i < a.size(); i++)
+			cout << r->getData(a[i]) << " ";
 			cout << endl;
 		}
-
 	}
 	void añadirDF(DataFrame *f) {
 		DataFrames.push_back(f);
@@ -95,7 +109,7 @@ public:
 			cout << endl;
 		}
 	}
-	void escribirDatos(int f) {
+	/*void escribirDatos(int f) {
 		vector<Row> aux = DataFrames[f]->getFilas();
 		for (int i = 0; i < aux.size(); i++) {
 			Row auxi = aux[i];
@@ -108,14 +122,15 @@ public:
 			}
 		}
 	}
-
-	void filtrar(char a1, string b1, int f, int a) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
-	    vector<Row> filas = DataFrames[a-1]->filtrarDatos(a1, b1, f);
-		DataFrame* wi = new DataFrame;
-	    for (int i = 0; i < filas.size(); i++) {
-	        wi->añadirFila(filas[i]);
-	    }
-		DataFrames.push_back(wi);
+	*/
+	void filtrar(int selec,string nc1, string op1, string val1, string nc2 = "", string op2 = "", string val2 = "") { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
+		cout << nc1 << " " << op1 << " " << val1 << " " << nc2 << " " << op2 << " " << val2 << endl;
+		DataFrames.push_back(new DataFrame);
+		DataFrames[DataFrames.size()-1] = DataFrames[selec-1]->filter(nc1, op1, val1, nc2, op2, val2);
+	}
+	void seleccionar(int selec, vector<string> names) {
+		DataFrames.push_back(new DataFrame);
+		DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->select(names);
 	}
 
 
