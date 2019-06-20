@@ -21,10 +21,5 @@ public:
 private:
 	map<string, Column*>*cols;
 	int indice;
-	
 
-
-
-public:
-	
 };

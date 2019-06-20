@@ -132,6 +132,8 @@ public:
 		DataFrames.push_back(new DataFrame);
 		DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->select(names);
 	}
-
+	void indexar(int selec, string colName) {
+		DataFrames[selec-1]->indexar(colName);
+	}
 
 };

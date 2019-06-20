@@ -2,10 +2,12 @@
 #include "Column.h"
 #include "Row.h"
 #include <vector>
+#include "Arbolito.h"
 using namespace std;
 
 class DataFrame {
 private:
+	map<string, AVLTree<Row*,string>*> arboles;
 	vector<Row*>* Filas;
 	map<string, Column*>* Columnas;
 	vector<string> nombres;
@@ -110,6 +112,19 @@ public:
 		nDF->setNombres(nombres);
 		nDF->Filas = this->Filas;
 		
+	}
+	void indexar(string colName) {
+		
+		AVLTree<Row*, string>* arb = new AVLTree<Row*, string>([=](Row* r) {
+			return r->getData(colName);
+		});
+		
+		for (auto row : *Filas) {
+			cout << "entre" << endl;
+			arb->add(row);
+		}
+		
+		arboles[colName] = arb;
 	}
 	void añadirFila(vector<string> a) {
 		int n = a.size();

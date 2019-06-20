@@ -127,6 +127,7 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Arbolito.h" />
     <ClInclude Include="Column.h" />
     <ClInclude Include="DataFrame.h" />
     <ClInclude Include="Controladora.h" />

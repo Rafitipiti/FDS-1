@@ -134,22 +134,6 @@ void mostrarMSelec(Controladora*& control, int seleccionado) {
 	}
 	control->seleccionar(seleccionado, b);
 }
-//void showM() {
-//	cout << endl << endl << endl << endl << endl;
-//	cout << "                         ***************************************************************************" << endl;
-//	cout << "                         *                                                                         *" << endl;
-//	cout << "                         *                                 MENU                                    *" << endl;
-//	cout << "                         *                                                                         *" << endl;
-//	cout << "                         *        1.- Importar                                                     *" << endl;
-//	cout << "                         *        2.- mostrar1                                                     *" << endl;
-//	cout << "                         *        3.- Exportar                                                     *" << endl;
-//	cout << "                         *        4.- Filtrar                                                      *" << endl;
-//	cout << "                         *        5.- mostrar2                                                     *" << endl;
-//	cout << "                         *        6.- Ordenar columna                                              *" << endl;
-//	cout << "                         *        7.- Salir                                                        *" << endl;
-//	cout << "                         *                                                                         *" << endl;
-//	cout << "                         ***************************************************************************" << endl;
-//}
 
 void showM() {
 	cout << endl << endl << endl << endl << endl;
@@ -169,6 +153,12 @@ void showM() {
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
 }
+void mostrarIndx(Controladora*& control, int seleccionado) {
+	cout << "Ingrese el nombre de la columna a indexar" << endl;
+	string b; cin >> b;
+	control->indexar(seleccionado, b);
+	cout << "Se ha indexado la columna " << b << endl;
+}
 void main() {
 	Controladora* control = new Controladora();
 	int opcion = 0;
@@ -181,7 +171,7 @@ void main() {
 		case 2:control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; opcion = 0; break;
 		case 3:control->mostrar(seleccionado); opcion = 0; break;
 		case 4:mostrarFiltro(control,seleccionado); opcion = 0; break;
-		case 5:control->mostrar(2); opcion = 0; break;
+		case 5:mostrarIndx(control,seleccionado); opcion = 0; break;
 //		case 6:control->escribirDatos(seleccionado); opcion = 0; break;
 		case 7:mostrarMSelec(control, seleccionado); opcion = 0; break;
 		default: opcion = 0; break;
