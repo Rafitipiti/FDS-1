@@ -6,7 +6,7 @@
 using namespace std;
 using namespace System;
 
-void mostrarFiltro(Controladora*& control) {
+void mostrarFiltro(Controladora*& control, int seleccionado) {
 	int col, opcion;
 	cout << "Ingrese columna: " << endl;
 	cin >> col;
@@ -30,13 +30,14 @@ void mostrarFiltro(Controladora*& control) {
 		cout << "Tipo: ";
 		string tipo; cin >> tipo;
 		switch (opcion) {
-		case 1:; control->filtrar('>',tipo,col) ; break;
-		case 2:; control->filtrar('<',tipo,col); break;
-		case 3:; control->filtrar('=',tipo,col); break;
-		case 4:; control->filtrar('0',tipo,col); break;
-		case 5:; control->filtrar('n',tipo,col); break;
-		case 6:; control->filtrar('>',tipo,col); break;
-		default: control->filtrar('>',tipo,col); break;
+		case 1:; control->filtrar('>',tipo,col, seleccionado) ; break;
+		case 2:; control->filtrar('<',tipo,col, seleccionado); break;
+		case 3:; control->filtrar('=',tipo,col, seleccionado); break;
+		case 4:; control->filtrar('0',tipo,col, seleccionado); break;
+		case 5:; control->filtrar('n',tipo,col, seleccionado); break;
+		case 6:; control->filtrar('>',tipo,col, seleccionado); break;
+		default: control->filtrar('>',tipo,col, seleccionado); break;
+		
 		}
 	} while (opcion == 0);
 	
@@ -57,7 +58,7 @@ void mostrarm2(Controladora*& control) {
 	int opcion;
 	cout << "Seleccione Dataframe "; cin >> opcion;
 }
-void mostrarm3(Controladora*& control) {
+void mostrarm3(Controladora*& control, int seleccionado) {
 	int opc;
 	cout << "*************************************" << endl;
 	cout << "*          CREAR DATAFRAME          *" << endl;
@@ -87,13 +88,14 @@ void mostrarm3(Controladora*& control) {
 		} while (!(op == 1 || op == 2));
 		if (op == 1) {
 			cout << "-----------------" << endl;
+			control->ListarDF();
 			break;
 		}
 		else if (op == 2) {
 			cout << endl;
 			cout << " Seleccionar columna " << endl;
 			cout << " Filtrar " << endl;
-			mostrarFiltro(control);
+			mostrarFiltro(control, seleccionado);
 		}
 	default:
 		break;
@@ -125,11 +127,11 @@ void showM() {
 	cout << "                         *                                  MENU                                    *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         *        1.- Cargar Dataframe                                             *" << endl;
-	cout << "                         *        2.- Guardar Dataframe                                            *" << endl;
-	cout << "                         *        3.- Listar Dataframe                                             *" << endl;
+	cout << "                         *        2.- Seleccionar Dataframe                                        *" << endl;
+	cout << "                         *        3.- Mostrar Dataframe                                             *" << endl;
 	cout << "                         *        4.- Crear Dataframe                                              *" << endl;
 	cout << "                         *        5.- Indexar Dataframe                                            *" << endl;
-	cout << "                         *        6.- Escribir Dataframe B                                         *" << endl;
+	cout << "                         *        6.- Escribir Dataframe                                           *" << endl;
 	cout << "                         *        7.- Salir                                                        *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
@@ -138,21 +140,22 @@ void main() {
 	Controladora* control = new Controladora();
 	int opcion = 0;
 	showM();
+	int seleccionado;
 	do {
 		cin >> opcion;
 		switch (opcion) {
 		case 1:control->leerDatosString(); opcion = 0; break;
-		case 2:control->mostrar(1); opcion = 0; break;
-		case 3:opcion = 0; break;
-		case 4:mostrarFiltro(control); opcion = 0; break;
+		case 2:control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; opcion = 0; break;
+		case 3:control->mostrar(seleccionado); opcion = 0; break;
+		case 4:mostrarFiltro(control,seleccionado); opcion = 0; break;
 		case 5:control->mostrar(2); opcion = 0; break;
-		case 6:escribirDatosb(); opcion = 0; break;
+		case 6:control->escribirDatos(seleccionado); opcion = 0; break;
 		case 7:exit(1); break;
 		default: opcion = 0; break;
 		}
 	} while (opcion == 0);
 
-	control->leerDatos();
+	//control->leerDatos();
 
 	_getch();
 }

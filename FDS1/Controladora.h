@@ -14,18 +14,15 @@ using namespace std;
 class Controladora {
 private:
 
-	DataFrame* a;
-	DataFrame* b;
-
+	vector<DataFrame*> DataFrames;
 public:
 	
 	Controladora() {
-		this->a = new DataFrame();
-		this->b = new DataFrame();
+		
 	}
 
 	void leerDatosString() {
-		
+		DataFrame* a = new DataFrame;
 		Row me;
 		ifstream f("archivo.txt");
 		string line, num;
@@ -47,10 +44,16 @@ public:
 				a->añadirFila(me);
 			}
 		}
+		DataFrames.push_back(a);
 	}
 	void mostrar(int f) {
-		if (f == 1) mostrarDataFrame(a);
-		else mostrarDataFrame(b);
+		mostrarDataFrame(DataFrames[f-1]);
+	}
+	void ListarDF() {
+		cout << "-------------------------------------------" << endl;
+		for (int i = 1; i <= DataFrames.size(); i++) {
+			cout <<"-DataFrame "<<i << "" << endl;
+		}
 	}
 	void mostrarDataFrame( DataFrame* w) {
 		for (auto r : *w) {
@@ -60,6 +63,9 @@ public:
 			cout << endl;
 		}
 
+	}
+	void añadirDF(DataFrame *f) {
+		DataFrames.push_back(f);
 	}
 	void leerDatos() {
 		ifstream f("archivo.txt");
@@ -89,8 +95,8 @@ public:
 			cout << endl;
 		}
 	}
-	void escribirDatosb() {
-		vector<Row> aux = b->getfilas;
+	void escribirDatos(int f) {
+		vector<Row> aux = DataFrames[f]->getFilas();
 		for (int i = 0; i < aux.size(); i++) {
 			Row auxi = aux[i];
 			vector<Node*> auxiliar = auxi.getDatos();
@@ -103,19 +109,13 @@ public:
 		}
 	}
 
-	void filtrar(char a1, string b1, int f) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
-	    vector<Row> filas = a->filtrarDatos(a1, b1, f);
-		cout << filas.size() << endl;
-		for (auto w : filas) {
-			for (auto rf : w) {
-				cout << rf << " ";
-			}
-			cout << endl;
-		}
-		b->clear();
+	void filtrar(char a1, string b1, int f, int a) { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
+	    vector<Row> filas = DataFrames[a-1]->filtrarDatos(a1, b1, f);
+		DataFrame* wi = new DataFrame;
 	    for (int i = 0; i < filas.size(); i++) {
-	        b->añadirFila(filas[i]);
+	        wi->añadirFila(filas[i]);
 	    }
+		DataFrames.push_back(wi);
 	}
 
 

@@ -153,4 +153,8 @@ public:
 		
 		return filas2;
 	}
+
+	vector<Row> getFilas() {
+		return this->Filas;
+	}
 };
