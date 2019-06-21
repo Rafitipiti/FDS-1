@@ -113,6 +113,25 @@ public:
 		nDF->Filas = this->Filas;
 		
 	}
+	//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+		//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+		//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+
+	//DataFrame* indexar(string colName) {
+	//    DataFrame* newdata = new DataFrame();
+	//    AVLTree<Row, string> arb = new AVLTree<Row*, string>([=](Row * r) {
+	//        return r->getData(colName);
+	//        });
+	//
+	//    for (auto row : *Filas) {
+	//        cout << "entre" << endl;
+	//        arb->add(row);
+	//        arb->enorden(row,newdata);
+	//    }
+	//    arboles[colName] = arb;
+	//    return newdata;
+	//}
+
 	void indexar(string colName) {
 		
 		AVLTree<Row*, string>* arb = new AVLTree<Row*, string>([=](Row* r) {

@@ -97,5 +97,18 @@ public:
 		Add(root, e);
 		length++;
 	}
+	//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+		//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+		//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
 
+//    void enorden(Row* n, DataFrame* newdata) {
+//        if (n == nullptr) {
+//            return;
+//        }
+//        else {
+//            enorden(n->l);
+//            //AÑADIR ROW A NEWDATA
+//            enorden(n->r);
+//        }
+//    }
 };

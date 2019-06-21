@@ -132,8 +132,15 @@ public:
 		DataFrames.push_back(new DataFrame);
 		DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->select(names);
 	}
-	void indexar(int selec, string colName) {
-		DataFrames[selec-1]->indexar(colName);
-	}
+	//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+		//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
+		//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR//POR MODIFICAR
 
+	//void indexar(int selec, string colName) {
+	//    DataFrames.push_back(DataFrames[selec - 1]->indexar(colName));
+	//}
+	//
+	void indexar(int selec, string colName) {
+		DataFrames[selec - 1]->indexar(colName);
+	}
 };
