@@ -107,24 +107,32 @@ public:
 	}
 	DataFrame* sort(string colName) {
 		map<string, Column*>* nCols = new map<string, Column*>;
-		nCols = this->Columnas;
+		(*nCols) = (*Columnas);
 		DataFrame* nDF = new DataFrame(nCols);
 		nDF->setNombres(nombres);
-		nDF->Filas = this->Filas;
 		
+		vector<Row*>* f = arboles[colName]->Ordenar();
+		
+		nDF->Filas = f;
+		return nDF;
 	}
-	void indexar(string colName) {
-		
+	bool ConsultarIndx(string colname) {
+		if (arboles.find(colname) != arboles.end()) {
+			return true;
+		}
+		else return false;
+	}
+	void indexar(string colName) {	
 		AVLTree<Row*, string>* arb = new AVLTree<Row*, string>([=](Row* r) {
 			return r->getData(colName);
-		});
-		
+		});	
+		arb->setTipo((*Filas)[0]->getData(colName));
 		for (auto row : *Filas) {
-			cout << "entre" << endl;
-			arb->add(row);
+	
+			arb->Add(row);
 		}
-		
 		arboles[colName] = arb;
+		//arb->inord();
 	}
 	void añadirFila(vector<string> a) {
 		int n = a.size();
@@ -136,18 +144,6 @@ public:
 		Filas->push_back(new Row(Columnas, fu));
 	}
 
-	void ordenarDatos(){}
-	void editarDatos(){}
-	/*void clear() {
-		for (auto f : Filas) {
-			f.clear();
-		}
-		Filas.clear();
-		for (auto f : Columnas) {
-			f.clear();
-		}
-		Columnas.clear();
-	}*/
 	bool subt(string a, string b) {
 		if (a.find(b) != std::string::npos) return true;
 		else return false;

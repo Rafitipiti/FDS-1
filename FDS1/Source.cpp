@@ -62,18 +62,7 @@ void mostrarFiltro(Controladora*& control, int seleccionado) {
 	
 }
 
-void mostrarm1(Controladora*& control) {
-	int op;
-	do {
-		cout << "Seleccione tipo de separador (1: ' ' ; 2: ',')"; cin>>op;
-	} while (!(op == 1 || op == 2));
-	switch (op){
-	case 1:control->leerDatosString(); break;
-	case 2:control->leerDatosString(); break;
-	default:
-		break;
-	}
-}
+
 void mostrarm2(Controladora*& control) {
 	int opcion;
 	cout << "Seleccione Dataframe "; cin >> opcion;
@@ -122,6 +111,11 @@ void mostrarm3(Controladora*& control, int seleccionado) {
 	}
 
 }
+void mostrarMOrd(Controladora*& control, int seleccionado) {
+	cout << "Ingrese el nombre de la columna por la cual desea ordenar" << endl;
+	string a; cin >> a;
+	control->ordenar(seleccionado,a);
+}
 void mostrarMSelec(Controladora*& control, int seleccionado) {
 	cout << "Ingrese el numero de columnas del nuevo DF: " << endl;
 	int a; cin >> a;
@@ -148,7 +142,9 @@ void showM() {
 	cout << "                         *        5.- Indexar Dataframe                                            *" << endl;
 	cout << "                         *        6.- Escribir Dataframe                                           *" << endl;
 	cout << "                         *        7.- Seleccionar DF por columnas                                  *" << endl;
-	cout << "                         *        8.- Salir                                                        *" << endl;
+	cout << "                         *        8.- Ordenar DF                                                   *" << endl;
+	cout << "                         *                                                                         *" << endl;
+	cout << "                         *        9.- Salir                                                        *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
@@ -159,6 +155,21 @@ void mostrarIndx(Controladora*& control, int seleccionado) {
 	control->indexar(seleccionado, b);
 	cout << "Se ha indexado la columna " << b << endl;
 }
+void mostrarMCarg(Controladora*& control) {
+	cout << "Ingrese el nombre del archivo a cargar" << endl;
+	string b; cin >> b;
+	cout << "Ingrese el separador del archivo" << endl;
+	string c; cin >> c;
+	control->leerDatosString(b, c);
+}
+void mostrarArch(Controladora*& control, int seleccionado) {
+	cout << "Ingrese el separador que desea que tenga el archivo" << endl;
+	string b; cin >> b;
+	cout << "Ingrese el nombre que desea que tenga el archivo" << endl;
+	string f; cin >> f;
+	f += ".txt";
+	control->escribirDatos(seleccionado - 1, f, b);
+}
 void main() {
 	Controladora* control = new Controladora();
 	int opcion = 0;
@@ -167,13 +178,14 @@ void main() {
 	do {
 		cin >> opcion;
 		switch (opcion) {
-		case 1:control->leerDatosString(); opcion = 0; break;
+		case 1:mostrarMCarg(control); opcion = 0; break;
 		case 2:control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; opcion = 0; break;
 		case 3:control->mostrar(seleccionado); opcion = 0; break;
 		case 4:mostrarFiltro(control,seleccionado); opcion = 0; break;
 		case 5:mostrarIndx(control,seleccionado); opcion = 0; break;
-//		case 6:control->escribirDatos(seleccionado); opcion = 0; break;
+		case 6: mostrarArch(control,seleccionado); opcion = 0; break;
 		case 7:mostrarMSelec(control, seleccionado); opcion = 0; break;
+		case 8: mostrarMOrd(control, seleccionado); opcion = 0; break;
 		default: opcion = 0; break;
 		}
 	} while (opcion == 0);

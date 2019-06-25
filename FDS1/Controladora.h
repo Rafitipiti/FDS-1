@@ -15,16 +15,18 @@ class Controladora {
 private:
 
 	vector<DataFrame*> DataFrames;
+	vector<string> nombresDFS;
 public:
 	
 	Controladora() {
 		
 	}
 
-	void leerDatosString() {
-		
+	void leerDatosString(string b, string c) {
+		nombresDFS.push_back(b);
+		b += ".txt";
 		vector<string> me;
-		ifstream f("archivo.txt");
+		ifstream f(b);
 		string line, num;
 		vector<string> nomb;
 		bool nombres = false;
@@ -36,7 +38,7 @@ public:
 			while (getline(f,line)) {
 				if (nombres == false) {
 					stringstream ss(line);
-					while (getline(ss, num, ',')) {
+					while (getline(ss, num, c[0])) {
 						nomb.push_back(num);
 					}
 					nombres = true;
@@ -46,7 +48,7 @@ public:
 					
 					stringstream ss(line);
 					me.clear();
-					while (getline(ss, num, ',')) {
+					while (getline(ss, num, c[0])) {
 						me.push_back(num);
 					}
 					vector<string > ay = a->getNombres();
@@ -64,7 +66,7 @@ public:
 	void ListarDF() {
 		cout << "-------------------------------------------" << endl;
 		for (int i = 1; i <= DataFrames.size(); i++) {
-			cout <<"-DataFrame "<<i << "" << endl;
+			cout << i << ") " << nombresDFS[i - 1] << endl;
 		}
 	}
 	
@@ -109,20 +111,19 @@ public:
 			cout << endl;
 		}
 	}
-	/*void escribirDatos(int f) {
-		vector<Row> aux = DataFrames[f]->getFilas();
-		for (int i = 0; i < aux.size(); i++) {
-			Row auxi = aux[i];
-			vector<Node*> auxiliar = auxi.getDatos();
-			for (int j = 0; j < auxiliar.size(); j++) {
-				Node* naux = auxiliar[j];
-				ofstream archi2("archivo2.txt");
-				archi2 << naux->getElem();
+	void escribirDatos(int w, string nombre, string separador) {
+		ofstream archi2(nombre);
+			vector<string> a = DataFrames[w]->getNombres();
+			for (auto f : a) archi2 << f << separador;
+			archi2 << endl;
+			for (auto r : *DataFrames[w]) {
+				for (int i = 0; i < a.size(); i++)
+					archi2 << r->getData(a[i]) << separador;
 				archi2 << endl;
 			}
-		}
 	}
-	*/
+	
+
 	void filtrar(int selec,string nc1, string op1, string val1, string nc2 = "", string op2 = "", string val2 = "") { // f sera la columna / lo cambiaremos por "edad", "nombre" etc....
 		cout << nc1 << " " << op1 << " " << val1 << " " << nc2 << " " << op2 << " " << val2 << endl;
 		DataFrames.push_back(new DataFrame);
@@ -135,5 +136,18 @@ public:
 	void indexar(int selec, string colName) {
 		DataFrames[selec-1]->indexar(colName);
 	}
-
+	void ordenar(int selec, string colName) {
+		if (DataFrames[selec - 1]->ConsultarIndx(colName)) {
+			DataFrames.push_back(new DataFrame);
+			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->sort(colName);
+		}
+		else {
+			
+			indexar(selec, colName);
+			cout << "f" << endl;
+			DataFrames.push_back(new DataFrame);
+			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->sort(colName);
+		}
+		
+	}
 };

@@ -1,101 +1,160 @@
 #pragma once
-
+#include <iostream>
 #include <functional>
 #include <algorithm>
 using namespace std;
 
-template <typename T, typename R=T>
+
+template<typename T, typename R = T>
 class AVLTree {
 	struct Node {
 		T e;
-		Node* l;
-		Node* r;
-		int h;
-	Node(T e) : e(e), l(nullptr), r(nullptr), h(0) {}
-	static int height(Node* n) {
-		if (n == nullptr) {
-			return -1;
+		Node* R;
+		Node* L;
+		int altura;
+
+		Node(T e) : e(e), R(nullptr), L(nullptr), altura(0) {}
+		static int heigth(Node* a) {
+			if (a == nullptr) {
+				return -1;
+			}
+			else return a->altura;
 		}
-		else return n->h;
-	}
-	void updateH() {
-		h = max(Node::height(l), Node::height(r)) +1;
-	}
+		void updateH() {
+			this->altura = max(Node::heigth(L), Node::heigth(R)) + 1;
+		}
+
 	};
+
 	Node* root;
-	int length;
+	int l;
 	function<R(T)> key;
-
-	void destroy(Node* n) {
-		if (n != nullptr) {
-			destroy(n->l);
-			destroy(n->r);
-			delete n;
+	char tipo;
+	void inOrder(Node* a, vector<T>*& f) {
+		if (a != nullptr) {
+			cout << "memori" << endl;
+			inOrder(a->L,f);
+		
+			(*f).push_back(a->e);
+			inOrder(a->R,f);
 		}
 	}
-
-	void rotAB(Node*& n) {
-		Node* aux = n->l;
-		n->l = aux->r;
-		n->Node::updateH();
-		aux->r = n;
-		n = aux;
-		n->Node::updateH();
+	void destroy(Node*& a) {
+		if (a != nullptr) {
+			destroy(a->L);
+			destroy(a->R);
+			delete a;
+		}
 	}
-
-	void rotBA(Node*& n) {
-		Node* aux = n->r;
-		n->r = aux->l;
-		n->updateH();
-		aux->l = n;
-		n = aux;
-		n->updateH();
+	void RotAB(Node*& a) {
+		Node* aux = a->L;
+		a->L = aux->R;
+		a->updateH();
+		aux->R = a;
+		a = aux;
+		a->updateH();
 	}
-	void balance(Node*& n) {
-		int delta = Node::height(n->l) - Node::height(n->r);
+	void RotBA(Node*& a) {
+		Node* aux = a->R;
+		a->R = aux->L;
+		a->updateH();
+		aux->L = a;
+		a = aux;
+		a->updateH();
+	}
+	void Balance(Node*& a) {
+		int delta = Node::heigth(a->L) - Node::heigth(a->R);
 		if (delta < -1) {
-			if (Node::height(n->r->l) > Node::height(n->r->l)) {
-				rotAB(n->r);
+			if (Node::heigth(a->R->L) > Node::heigth(a->R->R)) {
+				RotAB(a->R);
 			}
-			rotBA(n);
+			RotBA(a);
 		}
-		else {
-			if (Node::height(n->l->r) > Node::height(n->l->l)) {
-				rotBA(n->l);
+		else if (delta > 1) {
+			if (Node::heigth(a->L->R) > Node::heigth(a->L->L)) {
+				RotBA(a->L);
 			}
-			rotAB(n);
+			RotAB(a);
 		}
 	}
-	void Add(Node*& n , T e) {
-		if (n == nullptr) {
-			n = new Node(e);
-			return;
-		}
-		else if (key(e) < key(n->e)) {
-			Add(n->l, e);
+	
+	void add(T e, Node*& a) {
+		if (tipo == 'n') {
+			if (a == nullptr) {
+				a = new Node(e);
+				return;
+			}
+			else if (key(e) < key(a->e)) {
+				add(e, a->L);
+			}
+			else {
+				add(e, a->R);
+			}
 		}
 		else {
-			Add(n->r, e);
+			if (a == nullptr) {
+				a = new Node(e);
+				return;
+			}
+			else if (key(e).compare(key(a->e)) == 1) {
+				add(e, a->L);
+			}
+			else {
+				add(e, a->R);
+			}
 		}
-		balance(n);
-		n->Node::updateH();
+		Balance(a);
+		a->updateH();
+	}
+	bool buscar(Node* a, T b) {
+		if (a == nullptr) {
+			return false;
+		}
+		else if (key(a->e) == key(b)) {
+			return true;
+		}
+		else if (buscar(a->L, b)) {
+			return true;
+		}
+		else if (buscar(a->R, b)) {
+			return true;
+		}
+		else return false;
 	}
 public:
-	AVLTree(function<R(T)> key = [](T a) { return a; }) : root(nullptr), length(0), key(key){
+
+	AVLTree(function<R(T)> key = [](T a) { return a; }) : key(key), l(0), root(nullptr) {
 
 	}
 	~AVLTree() {
 		destroy(root);
 	}
-	int Height() {
-		return Node::height(root);
-	}
-	int Size() {
-		return length;
-	}
-	void add(T e) {
-		Add(root, e);
-		length++;
-	}
 
+	vector<T>* Ordenar() {
+		vector<T>* f = new vector<T>;
+		inOrder(root, f);
+		return f;
+	}
+	void Add(T e) {
+		add(e, root);
+		l++;
+	}
+	int size() {
+		return l;
+	}
+	int height() {
+		return Node::heigth(root);
+	}
+	void setTipo(string num) {
+		if ((num[0] >= 65 && num[0] <= 90) || (num[0] >= 97 && num[0] <= 122)) {
+			tipo = 's';
+		}
+		else {
+			tipo = 'n';
+		}
+	}
+	void Buscar(T a) {
+		if (buscar(root, a)) cout << "Se encontro el elemento" << endl;
+		else cout << "No se encontro el elemento" << endl;
+	}
 };
