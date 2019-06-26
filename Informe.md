@@ -42,7 +42,7 @@ _Árbol Binario de Busqueda_
 
 _Dataframe, Row, Column_
 
-![Diagrama de Clases](dclases.png)
+![Diagrama de Clases](FDS1/diagramadeclases.png)
 
 ### Cronograma de trabajo
 
