@@ -23,12 +23,12 @@ Nuestro objetivo específico es, mediante el análisis de la información solici
 
 _Dataframe:_
 
-Los dataframes son una clase de objetos especiales en R (lenguaje de programación estadístico/matemático). Usualmente cuando se realizan estudios estadísticos sobre un conjunto de objetos de una 'muestra', la información se organiza en una hoja de datos o cuadro de datos (dataframe por su traducción); en la cual cada fila corresponde a un objeto y cada columna a una variable de este mismo. 
+Los dataframes son una clase de objetos especiales en R (lenguaje de programación estadístico/matemático) comom indica Daniela Ballari en Matrices y Data frames. Usualmente cuando se realizan estudios estadísticos sobre un conjunto de objetos de una 'muestra', la información se organiza en una hoja de datos o cuadro de datos (dataframe por su traducción); en la cual cada fila corresponde a un objeto y cada columna a una variable de este mismo. 
 Como se puede apreciar su estructura es muy similar a la de una matriz, no obstante, un problema que surge al usar matrices es el solo poder usar valores numéricos, mientras que usando Dataframe podemos usar datos alfanuméricos.
 
 _Árbol_
 
-Es una estructura de dato no lineal, ya que cada elemento apunto a uno o mas elementos del mismo tipo. El elemento que apunta se le conoce como padre, mientras que el elemento apuntado se le conoce como hijo. Todo elemento es hijo de un padre, excepto la raiz, primer elemento de la estructura.
+Es una estructura de dato no lineal, ya que cada elemento apunto a uno o mas elementos del mismo tipo. El elemento que apunta se le conoce como padre, mientras que el elemento apuntado se le conoce como hijo. Todo elemento es hijo de un padre, excepto la raiz, primer elemento de la estructura como señala Óscar Blancarte en su sitio web Estructura de datos – Árboles.
 
 _Árbol Binario_
 
@@ -99,6 +99,12 @@ Hito 3:
     -Elaboración del video
 
     -Elaboración del PPT
+
+### Conclusiones
+
+Para el uso eficiente del manejo de archivos planos, hemos implementado una librería capaz de organizar la información mediante Dataframes empleando variables de tipo map, vectores y la estructura de árbol, la cual indexa la información y permite acceder a ella en complejidad logarítmica, la más eficiente para estos casos.
+
+Gracias a este tipo de estructuras y manejo de información, nuestra librería es capaz de administrar cantidades grandes de información en el tiempo y de la forma más eficiente.
 
 
 ### Bibliografía
