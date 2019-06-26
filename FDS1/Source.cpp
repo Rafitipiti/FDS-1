@@ -111,6 +111,13 @@ void mostrarm3(Controladora*& control, int seleccionado) {
 	}
 
 }
+///////CORREGIRRRRRRRR///////////
+void buscarfila(Controladora*& control) {
+	int n;
+	cout << "Ingrese el nombre de la columna por la cual desea ordenar" << endl;
+
+}
+///////CORREGIRRRRRRRR///////////
 void mostrarMOrd(Controladora*& control, int seleccionado) {
 	cout << "Ingrese el nombre de la columna por la cual desea ordenar" << endl;
 	string a; cin >> a;
@@ -143,8 +150,9 @@ void showM() {
 	cout << "                         *        6.- Escribir Dataframe                                           *" << endl;
 	cout << "                         *        7.- Seleccionar DF por columnas                                  *" << endl;
 	cout << "                         *        8.- Ordenar DF                                                   *" << endl;
+	cout << "                         *        9.- Buscar fila                                                  *" << endl;
 	cout << "                         *                                                                         *" << endl;
-	cout << "                         *        9.- Salir                                                        *" << endl;
+	cout << "                         *        10.- Salir                                                        *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         *                                                                         *" << endl;
 	cout << "                         ***************************************************************************" << endl;
@@ -178,14 +186,16 @@ void main() {
 	do {
 		cin >> opcion;
 		switch (opcion) {
-		case 1:mostrarMCarg(control); opcion = 0; break;
-		case 2:control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; opcion = 0; break;
-		case 3:control->mostrar(seleccionado); opcion = 0; break;
-		case 4:mostrarFiltro(control,seleccionado); opcion = 0; break;
-		case 5:mostrarIndx(control,seleccionado); opcion = 0; break;
+		case 1: mostrarMCarg(control); opcion = 0; break;
+		case 2: control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; opcion = 0; break;
+		case 3: control->mostrar(seleccionado); opcion = 0; break;
+		case 4: mostrarFiltro(control,seleccionado); opcion = 0; break;
+		case 5: mostrarIndx(control,seleccionado); opcion = 0; break;
 		case 6: mostrarArch(control,seleccionado); opcion = 0; break;
-		case 7:mostrarMSelec(control, seleccionado); opcion = 0; break;
+		case 7: mostrarMSelec(control, seleccionado); opcion = 0; break;
 		case 8: mostrarMOrd(control, seleccionado); opcion = 0; break;
+		case 9: opcion = 0; break;
+		case 10: exit(0);
 		default: opcion = 0; break;
 		}
 	} while (opcion == 0);
@@ -194,26 +204,3 @@ void main() {
 
 	_getch();
 }
-/*
-void main() {
-	Controladora* control = new Controladora();
-	int opcion = 0;
-	showM();
-	do {
-		cin >> opcion;
-		switch (opcion) {
-		case 1: mostrarm1(control); opcion = 0; break;
-		case 2: mostrarm2(control); opcion = 0; break;
-		case 3: control->mostrar(1); opcion = 0; break;
-		case 4: mostrarm3(control); control->mostrar(2); opcion = 0; break;
-		case 5: mostrarm2; break;
-		case 6: exit(1); break;
-		default: opcion = 0; break;
-		}
-	} while (opcion == 0);
-
-	control->leerDatos();
-
-	_getch();
-}
-*/
