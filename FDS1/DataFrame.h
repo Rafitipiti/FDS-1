@@ -22,6 +22,9 @@ public:
 			(*Columnas)[nombres[i]] = new Column();
 		}
 	}
+	void setNomb(vector<string>nms) {
+		nombres = nms;
+	}
 	class iterator {
 		unsigned int pos;
 		vector<Row*>* f;
@@ -81,7 +84,7 @@ public:
 	DataFrame* select(vector<string> colNames) {
 		map<string, Column*>* nCols = new map<string, Column*>;
 		DataFrame* nDF = new DataFrame(nCols);
-		nDF->setNombres(colNames);
+		nDF->setNomb(colNames);
 		for (auto cn : colNames) {
 			nDF->Columnas->at(cn) = Columnas->at(cn);
 		}
@@ -94,7 +97,7 @@ public:
 		map<string, Column*>* nCols = new map<string, Column*>;
 		(*nCols) = (*Columnas);
 		DataFrame* nDF = new DataFrame(nCols);
-		nDF->setNombres(nombres);
+		nDF->setNomb(nombres);
 		for (auto r : *Filas) {		
 			if (nc2 == "" && compare(op1, r->getData(nc1), val1) ) {
 				nDF->Filas->push_back(r);
@@ -109,7 +112,7 @@ public:
 		map<string, Column*>* nCols = new map<string, Column*>;
 		(*nCols) = (*Columnas);
 		DataFrame* nDF = new DataFrame(nCols);
-		nDF->setNombres(nombres);
+		nDF->setNomb(nombres);
 		
 		vector<Row*>* f = arboles[colName]->Ordenar();
 		

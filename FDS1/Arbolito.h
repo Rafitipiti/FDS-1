@@ -95,7 +95,7 @@ class AVLTree {
 				a = new Node(e);
 				return;
 			}
-			else if (key(e).compare(key(a->e)) == 1) {
+			else if (key(e).compare(key(a->e)) == -1) {
 				add(e, a->L);
 			}
 			else {
@@ -153,7 +153,7 @@ public:
 		}
 	}
 	vector<Row*>* Buscar(string a) {
-		vector<Row*>* aux;
+		vector<Row*>* aux = new vector<Row*>;
 		buscar(root, a, aux);
 		return aux;
 	}

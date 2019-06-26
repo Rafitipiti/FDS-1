@@ -85,12 +85,15 @@ public:
 		if (w->size() == 0) {
 			cout << "No se ha encontrado el elemento" << endl;
 			return;
-			for (auto r : *w) {
-				for (int i = 0; i < f.size(); i++)
-					cout << r->getData(f[i]) << " ";
-				cout << endl;
-
-			}
+			
+		}
+		cout << "Se encontraron " << w->size() << " elementos" << endl;
+		for (auto a : f) cout << a << " ";
+		cout << endl;
+		for (auto r : *w) {
+			for (int i = 0; i < f.size(); i++)
+				cout << r->getData(f[i]) << " ";
+			cout << endl;
 		}
 	}
 	void añadirDF(DataFrame *f){
@@ -160,7 +163,10 @@ public:
 		if (!DataFrames[selec - 1]->ConsultarIndx(colName)) {
 			indexar(selec, colName);
 		}
-		vector<Row*>* a = DataFrames[selec - 1]->Buscarf(colName ,elem);
+		vector<Row*>* a = DataFrames[selec - 1]->Buscarf(colName, elem);
+		
+		
 		mostrarF(a, DataFrames[selec - 1]);
+		return;
 	}
 };
