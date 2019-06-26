@@ -122,6 +122,10 @@ public:
 		}
 		else return false;
 	}
+	vector<Row*>* buscar(string colname, string elem) {
+
+		return arboles[colname]->Buscar();
+	}
 	void indexar(string colName) {	
 		AVLTree<Row*, string>* arb = new AVLTree<Row*, string>([=](Row* r) {
 			return r->getData(colName);
@@ -159,7 +163,7 @@ public:
 			if (b == f) return true;
 			break;
 		case '0':
-			if (b[1] == f[0]) return true;
+			if (b[0] == f[0]) return true;
 			break;
 		case 'n':
 			if (b[b.size() - 1] == f[f.size() - 1]) return true;

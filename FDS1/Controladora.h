@@ -22,7 +22,7 @@ public:
 		
 	}
 
-	void leerDatosString(string b, string c) {
+	void leerDatosString(string b, char c) {
 		nombresDFS.push_back(b);
 		b += ".txt";
 		vector<string> me;
@@ -38,7 +38,7 @@ public:
 			while (getline(f,line)) {
 				if (nombres == false) {
 					stringstream ss(line);
-					while (getline(ss, num, c[0])) {
+					while (getline(ss, num, c)) {
 						nomb.push_back(num);
 					}
 					nombres = true;
@@ -48,7 +48,7 @@ public:
 					
 					stringstream ss(line);
 					me.clear();
-					while (getline(ss, num, c[0])) {
+					while (getline(ss, num, c)) {
 						me.push_back(num);
 					}
 					vector<string > ay = a->getNombres();
@@ -77,6 +77,15 @@ public:
 		for (auto r : *w) {
 			for(int i = 0; i < a.size(); i++)
 			cout << r->getData(a[i]) << " ";
+			cout << endl;
+		}
+	}
+	void mostrarF() {
+		vector<Row*>* w;
+		w = buscar(colname, elem);
+		for (auto r : *w) {
+			for (int i = 0; i < a.size(); i++)
+				cout << r->getData(a[i]) << " ";
 			cout << endl;
 		}
 	}
@@ -111,7 +120,7 @@ public:
 			cout << endl;
 		}
 	}
-	void escribirDatos(int w, string nombre, string separador) {
+	void escribirDatos(int w, string nombre, char separador) {
 		ofstream archi2(nombre);
 			vector<string> a = DataFrames[w]->getNombres();
 			for (auto f : a) archi2 << f << separador;
@@ -150,4 +159,19 @@ public:
 		}
 		
 	}
+	/*void ordenar(int selec, string colName, string elemBusqueda) {
+		if (DataFrames[selec - 1]->ConsultarIndx(colName)) {
+			DataFrames.push_back(new DataFrame);
+			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->buscar(colName, elemBusqueda);
+		}
+		else {
+			
+			indexar(selec, colName);
+			cout << "f" << endl;
+			DataFrames.push_back(new DataFrame);
+			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->buscar(colName, elemBusqueda);
+		}
+		
+	}
+	*/
 };

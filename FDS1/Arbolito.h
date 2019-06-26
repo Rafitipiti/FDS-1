@@ -106,12 +106,13 @@ class AVLTree {
 		Balance(a);
 		a->updateH();
 	}
-	bool buscar(Node* a, T b) {
+	bool buscar(Node* a, T b, vector<T*>&* w) {
+		vector<>
 		if (a == nullptr) {
 			return false;
 		}
-		else if (key(a->e) == key(b)) {
-			return true;
+		else if (key(a->e) == key(b->e)) {
+			
 		}
 		else if (buscar(a->L, b)) {
 			return true;
@@ -120,6 +121,7 @@ class AVLTree {
 			return true;
 		}
 		else return false;
+
 	}
 public:
 

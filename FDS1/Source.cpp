@@ -167,16 +167,36 @@ void mostrarMCarg(Controladora*& control) {
 	cout << "Ingrese el nombre del archivo a cargar" << endl;
 	string b; cin >> b;
 	cout << "Ingrese el separador del archivo" << endl;
+	cout << "1) CSV" << endl;
+	cout << "2) TSV" << endl;
+	cout << "3) Personalizado" << endl;
 	string c; cin >> c;
-	control->leerDatosString(b, c);
+	char we;
+	switch (c[0]) {
+		case '1': we = ','; break;
+		case '2': we = '	'; break;
+		case '3':
+		cout << "Ingrese el separador del archivo" << endl; cin >> we; break;
+		
+	}
+	control->leerDatosString(b, we);
 }
 void mostrarArch(Controladora*& control, int seleccionado) {
-	cout << "Ingrese el separador que desea que tenga el archivo" << endl;
+	
+	cout << "1) CSV" << endl;
+	cout << "2) TSV" << endl;
+	cout << "3) Personalizado" << endl;
 	string b; cin >> b;
+	char we;
+	switch(b[0]) {
+	case '1': we = ','; break;
+	case '2': we = '	'; break;
+	case '3': cout << "Ingrese el separador que desea que tenga el archivo" << endl; cin >> we; break;
+	}
 	cout << "Ingrese el nombre que desea que tenga el archivo" << endl;
 	string f; cin >> f;
 	f += ".txt";
-	control->escribirDatos(seleccionado - 1, f, b);
+	control->escribirDatos(seleccionado - 1, f, we);
 }
 void main() {
 	Controladora* control = new Controladora();
@@ -204,3 +224,5 @@ void main() {
 
 	_getch();
 }
+
+
