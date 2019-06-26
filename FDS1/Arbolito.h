@@ -14,14 +14,14 @@ class AVLTree {
 		int altura;
 
 		Node(T e) : e(e), R(nullptr), L(nullptr), altura(0) {}
-		static int heigth(Node* a) {
+		static int height(Node* a) {
 			if (a == nullptr) {
 				return -1;
 			}
 			else return a->altura;
 		}
 		void updateH() {
-			this->altura = max(Node::heigth(L), Node::heigth(R)) + 1;
+			this->altura = max(Node::height(L), Node::height(R)) + 1;
 		}
 
 	};
@@ -63,15 +63,15 @@ class AVLTree {
 		a->updateH();
 	}
 	void Balance(Node*& a) {
-		int delta = Node::heigth(a->L) - Node::heigth(a->R);
+		int delta = Node::height(a->L) - Node::height(a->R);
 		if (delta < -1) {
-			if (Node::heigth(a->R->L) > Node::heigth(a->R->R)) {
+			if (Node::height(a->R->L) > Node::height(a->R->R)) {
 				RotAB(a->R);
 			}
 			RotBA(a);
 		}
 		else if (delta > 1) {
-			if (Node::heigth(a->L->R) > Node::heigth(a->L->L)) {
+			if (Node::height(a->L->R) > Node::height(a->L->L)) {
 				RotBA(a->L);
 			}
 			RotAB(a);
@@ -143,7 +143,7 @@ public:
 		return l;
 	}
 	int height() {
-		return Node::heigth(root);
+		return Node::height(root);
 	}
 	void setTipo(string num) {
 		if ((num[0] >= 65 && num[0] <= 90) || (num[0] >= 97 && num[0] <= 122)) {
