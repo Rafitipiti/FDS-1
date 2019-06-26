@@ -15,6 +15,11 @@ Tenemos bibliotecas que nos permiten manejar datos de gran magnitud. El problema
 
 ### Objetivos
 
+Cuando la cantidad de información que se quiere procesar es exorbitante, se requiere una librería que acceda a estos datos de manera eficiente y en complejidad algorítmica óptima para proporcionar fluidez al sistema.
+La librería trabajada debe ser capaz de seleccionar, buscar, filtrar, mostrar, indexar, ordenar y manejar la información empleando las estructuras adecuadas para solucionar este problema.
+
+### Objetivos
+
 Nuestro objetivo general es construir una biblioteca en c++ con base en los conceptos y a la teoría estudiada a lo largo del curso para proporcionar las herramientas gestión de información y manejarlas eficientemente.
 
 Nuestro objetivo específico es, mediante el análisis de la información solicitada, construir una biblioteca en c++ para el manejo de dataframes, que importe datos, maneje un indexado por columnas, permita seleccionar y acceder a estos elementos, filtre información por columnas, los ordene y los exporte a archivos planos.
