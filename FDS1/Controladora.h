@@ -66,7 +66,7 @@ public:
 	void ListarDF() {
 		cout << "-------------------------------------------" << endl;
 		for (int i = 1; i <= DataFrames.size(); i++) {
-			cout << i << ") " << nombresDFS[i - 1] << endl;
+			cout << "Dataframe " << i << endl;
 		}
 	}
 	
