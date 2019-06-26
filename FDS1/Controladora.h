@@ -89,6 +89,7 @@ public:
 				for (int i = 0; i < f.size(); i++)
 					cout << r->getData(f[i]) << " ";
 				cout << endl;
+
 			}
 		}
 	}
