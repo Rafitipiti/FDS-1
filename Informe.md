@@ -13,7 +13,7 @@ Trabajo final
 
 Tenemos bibliotecas que nos permiten manejar datos de gran magnitud. El problema es manejar de manera eficiente lo mencionado. Muchas veces tenemos millones de registros, pero no se pueden manipular directamente con su extensión. Esto implica mucho costo y tiempo. Como solución, podemos implementar una librería capaz de brindarnos las herramientas para administrar esta información adecuadamente y con base en nuestros aprendizajes relacionados a POO y al uso de estructuras de datos.
 
-### Objetivos
+### Problemática
 
 Cuando la cantidad de información que se quiere procesar es exorbitante, se requiere una librería que acceda a estos datos de manera eficiente y en complejidad algorítmica óptima para proporcionar fluidez al sistema.
 La librería trabajada debe ser capaz de seleccionar, buscar, filtrar, mostrar, indexar, ordenar y manejar la información empleando las estructuras adecuadas para solucionar este problema.
