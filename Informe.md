@@ -89,8 +89,6 @@ Hito 2:
     
     -TDA 2 (hashmap)
     
-    -TDA 3 (pila)
-    
     -Diagrama de componentes
 
     -Diagrama de clase de segundo nivel (bajo nivel)
@@ -102,4 +100,10 @@ Hito 3:
 
     -Elaboración del PPT
 
+
+### Bibliografía
+
+Daniela Ballari. Marzo, 2015. Matrices y data frames. Recuperado de: http://rstudio-pubs-static.s3.amazonaws.com/64517_662b1efec9a044bcb7f566dcecbdf297.html [Consulta: 21 de Mayo del 2019]
+
+Oscar Blancarte. Agosto, 2014. Estructura de datos – Árboles. Recuperado de: https://www.oscarblancarteblog.com/2014/08/22/estructura-de-datos-arboles [Consulta: 21 de Mayo del 2019]
 
