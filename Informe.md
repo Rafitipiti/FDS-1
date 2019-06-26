@@ -68,7 +68,6 @@ Hito 1:
 
     -Cronograma
 
-    yuml.me (para subir diagrama)
 
 Hito 2:
 
@@ -96,7 +95,6 @@ Hito 2:
 
     -Diagrama de clase de segundo nivel (bajo nivel)
 
-    Aprendizajes necesarios: hasta semana 13
 
 Hito 3:
 
@@ -104,5 +102,4 @@ Hito 3:
 
     -Elaboración del PPT
 
-    -Terno para la presentación
 
