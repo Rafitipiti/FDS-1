@@ -112,16 +112,19 @@ void mostrarm3(Controladora*& control, int seleccionado) {
 
 }
 ///////CORREGIRRRRRRRR///////////
-void buscarfila(Controladora*& control) {
-	int n;
+void buscarfila(Controladora*& control, int seleccionado) {
+	string n, elem;
 	cout << "Ingrese el nombre de la columna por la cual desea ordenar" << endl;
-
+	cin >> n;
+	cout << "Ingrese elemento a buscar" << endl;
+	cin >> elem;
+	control->buscarf(seleccionado, n, elem);
 }
-///////CORREGIRRRRRRRR///////////
 void mostrarMOrd(Controladora*& control, int seleccionado) {
 	cout << "Ingrese el nombre de la columna por la cual desea ordenar" << endl;
 	string a; cin >> a;
-	control->ordenar(seleccionado,a);
+	control->ordenar(seleccionado, a);
+	cout << "Se ha ordenado correctamente " << endl;
 }
 void mostrarMSelec(Controladora*& control, int seleccionado) {
 	cout << "Ingrese el numero de columnas del nuevo DF: " << endl;
@@ -214,7 +217,7 @@ void main() {
 		case 6: mostrarArch(control,seleccionado); opcion = 0; break;
 		case 7: mostrarMSelec(control, seleccionado); opcion = 0; break;
 		case 8: mostrarMOrd(control, seleccionado); opcion = 0; break;
-		case 9: opcion = 0; break;
+		case 9: buscarfila(control, seleccionado);  opcion = 0; break;
 		case 10: exit(0);
 		default: opcion = 0; break;
 		}

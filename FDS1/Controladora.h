@@ -80,16 +80,19 @@ public:
 			cout << endl;
 		}
 	}
-	void mostrarF() {
-		vector<Row*>* w;
-		w = buscar(colname, elem);
-		for (auto r : *w) {
-			for (int i = 0; i < a.size(); i++)
-				cout << r->getData(a[i]) << " ";
-			cout << endl;
+	void mostrarF(vector<Row*>* w, DataFrame* a) {
+		vector<string> f = a->getNombres();
+		if (w->size() == 0) {
+			cout << "No se ha encontrado el elemento" << endl;
+			return;
+			for (auto r : *w) {
+				for (int i = 0; i < f.size(); i++)
+					cout << r->getData(f[i]) << " ";
+				cout << endl;
+			}
 		}
 	}
-	void añadirDF(DataFrame *f) {
+	void añadirDF(DataFrame *f){
 		DataFrames.push_back(f);
 	}
 	void leerDatos() {
@@ -146,32 +149,17 @@ public:
 		DataFrames[selec-1]->indexar(colName);
 	}
 	void ordenar(int selec, string colName) {
-		if (DataFrames[selec - 1]->ConsultarIndx(colName)) {
-			DataFrames.push_back(new DataFrame);
-			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->sort(colName);
-		}
-		else {
-			
+		if (!DataFrames[selec - 1]->ConsultarIndx(colName)) {
 			indexar(selec, colName);
-			cout << "f" << endl;
-			DataFrames.push_back(new DataFrame);
-			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->sort(colName);
 		}
-		
+		DataFrames.push_back(new DataFrame);
+		DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->sort(colName);
 	}
-	/*void ordenar(int selec, string colName, string elemBusqueda) {
-		if (DataFrames[selec - 1]->ConsultarIndx(colName)) {
-			DataFrames.push_back(new DataFrame);
-			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->buscar(colName, elemBusqueda);
-		}
-		else {
-			
+	void buscarf(int selec, string colName, string elem) {
+		if (!DataFrames[selec - 1]->ConsultarIndx(colName)) {
 			indexar(selec, colName);
-			cout << "f" << endl;
-			DataFrames.push_back(new DataFrame);
-			DataFrames[DataFrames.size() - 1] = DataFrames[selec - 1]->buscar(colName, elemBusqueda);
 		}
-		
+		vector<Row*>* a = DataFrames[selec - 1]->Buscarf(colName ,elem);
+		mostrarF(a, DataFrames[selec - 1]);
 	}
-	*/
 };

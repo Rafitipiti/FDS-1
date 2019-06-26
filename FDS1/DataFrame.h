@@ -122,9 +122,9 @@ public:
 		}
 		else return false;
 	}
-	vector<Row*>* buscar(string colname, string elem) {
-
-		return arboles[colname]->Buscar();
+	vector<Row*>* Buscarf(string colname, string elem) {
+		vector<Row*>* vec = arboles[colname]->Buscar(elem);
+		return vec;
 	}
 	void indexar(string colName) {	
 		AVLTree<Row*, string>* arb = new AVLTree<Row*, string>([=](Row* r) {

@@ -2,8 +2,8 @@
 #include <iostream>
 #include <functional>
 #include <algorithm>
+#include "Row.h"
 using namespace std;
-
 
 template<typename T, typename R = T>
 class AVLTree {
@@ -32,7 +32,6 @@ class AVLTree {
 	char tipo;
 	void inOrder(Node* a, vector<T>*& f) {
 		if (a != nullptr) {
-			cout << "memori" << endl;
 			inOrder(a->L,f);
 		
 			(*f).push_back(a->e);
@@ -106,22 +105,20 @@ class AVLTree {
 		Balance(a);
 		a->updateH();
 	}
-	bool buscar(Node* a, T b, vector<T*>&* w) {
-		vector<>
+	void buscar(Node* a, string b, vector<T>*& aux) {
 		if (a == nullptr) {
-			return false;
+			return;
 		}
-		else if (key(a->e) == key(b->e)) {
-			
+		else if (key(a->e) == b) {
+			aux->push_back(a->e);
+			while(a->R != nullptr && a->e == a->R->e){
+				aux->push_back(a->R->e);
+				a = a->R;
+			}
+			return;
 		}
-		else if (buscar(a->L, b)) {
-			return true;
-		}
-		else if (buscar(a->R, b)) {
-			return true;
-		}
-		else return false;
-
+		buscar(a->L, b,aux);
+		buscar(a->R, b,aux);
 	}
 public:
 
@@ -155,8 +152,9 @@ public:
 			tipo = 'n';
 		}
 	}
-	void Buscar(T a) {
-		if (buscar(root, a)) cout << "Se encontro el elemento" << endl;
-		else cout << "No se encontro el elemento" << endl;
+	vector<Row*>* Buscar(string a) {
+		vector<Row*>* aux;
+		buscar(root, a, aux);
+		return aux;
 	}
 };
