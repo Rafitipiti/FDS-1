@@ -5,6 +5,26 @@
 
 using namespace std;
 using namespace System;
+void showM() {
+	cout << endl << endl << endl << endl << endl;
+	cout << "                         ***************************************************************************" << endl;
+	cout << "                         *                                                                         *" << endl;
+	cout << "                         *                                  MENU                                   *" << endl;
+	cout << "                         *                                                                         *" << endl;
+	cout << "                         *        1.- Cargar Dataframe                                             *" << endl;
+	cout << "                         *        2.- Seleccionar Dataframe                                        *" << endl;
+	cout << "                         *        3.- Mostrar Dataframe                                            *" << endl;
+	cout << "                         *        4.- Filtrar Dataframe                                            *" << endl;
+	cout << "                         *        5.- Indexar Dataframe                                            *" << endl;
+	cout << "                         *        6.- Escribir Dataframe                                           *" << endl;
+	cout << "                         *        7.- Seleccionar DF por columnas                                  *" << endl;
+	cout << "                         *        8.- Ordenar DF                                                   *" << endl;
+	cout << "                         *        9.- Buscar fila                                                  *" << endl;
+	cout << "                         *        10.- Salir                                                       *" << endl;
+	cout << "                         *                                                                         *" << endl;
+	cout << "                         *                                                                         *" << endl;
+	cout << "                         ***************************************************************************" << endl;
+}
 string tipo(int opcion) {
 	switch (opcion) {
 	case 1:; return ">"; break;
@@ -17,9 +37,14 @@ string tipo(int opcion) {
 	}
 }
 void mostrarFiltro(Controladora*& control, int seleccionado) {
+	if (seleccionado == 0) {
+		return;
+	}
+	Console::ForegroundColor = ConsoleColor::Magenta;
 	int col, opcion;
 	cout << "Ingrese el numero de filtros " << endl;
 	int num; cin >> num;
+	Console::Clear();
 	cout << endl << endl << endl << endl << endl;
 	cout << "                         ***************************************************************************" << endl;
 	cout << "                         *                                                                         *" << endl;
@@ -59,7 +84,8 @@ void mostrarFiltro(Controladora*& control, int seleccionado) {
 		string ele1; cin >> ele1;
 		control->filtrar(seleccionado,coln1, tipo(f1), ele1);
 	}
-	
+	Console::ForegroundColor = ConsoleColor::Red;
+	Console::Clear(); showM(); cout << "Se ha creado un nuevo Dataframe" << endl;
 }
 
 
@@ -68,6 +94,9 @@ void mostrarm2(Controladora*& control) {
 	cout << "Seleccione Dataframe "; cin >> opcion;
 }
 void mostrarm3(Controladora*& control, int seleccionado) {
+	if (seleccionado == 0) {
+		return;
+	}
 	int opc;
 	cout << "*************************************" << endl;
 	cout << "*          CREAR DATAFRAME          *" << endl;
@@ -111,8 +140,10 @@ void mostrarm3(Controladora*& control, int seleccionado) {
 	}
 
 }
-///////CORREGIRRRRRRRR///////////
 void buscarfila(Controladora*& control, int seleccionado) {
+	if (seleccionado == 0) {
+		return;
+	}
 	string n, elem;
 	cout << "Ingrese el nombre de la columna por la cual desea buscar" << endl;
 	cin >> n;
@@ -122,12 +153,21 @@ void buscarfila(Controladora*& control, int seleccionado) {
 	return;
 }
 void mostrarMOrd(Controladora*& control, int seleccionado) {
+	if (seleccionado == 0) {
+		return;
+	}
+	Console::ForegroundColor = ConsoleColor::DarkBlue;
 	cout << "Ingrese el nombre de la columna por la cual desea ordenar" << endl;
 	string a; cin >> a;
 	control->ordenar(seleccionado, a);
-	cout << "Se ha ordenado correctamente " << endl;
+	Console::ForegroundColor = ConsoleColor::Red;
+	cout << "Se ha ordenado correctamente en un nuevo Dataframe " << endl;
 }
 void mostrarMSelec(Controladora*& control, int seleccionado) {
+	if (seleccionado == 0) {
+		return;
+	}
+	Console::ForegroundColor = ConsoleColor::Gray;
 	cout << "Ingrese el numero de columnas del nuevo DF: " << endl;
 	int a; cin >> a;
 	cout << "Ingrese los nombres de columnas que desee que tenga el nuevo DF: " << endl;
@@ -138,36 +178,20 @@ void mostrarMSelec(Controladora*& control, int seleccionado) {
 		b.push_back(z);
 	}
 	control->seleccionar(seleccionado, b);
-}
-
-void showM() {
-	cout << endl << endl << endl << endl << endl;
-	cout << "                         ***************************************************************************" << endl;
-	cout << "                         *                                                                         *" << endl;
-	cout << "                         *                                  MENU                                   *" << endl;
-	cout << "                         *                                                                         *" << endl;
-	cout << "                         *        1.- Cargar Dataframe                                             *" << endl;
-	cout << "                         *        2.- Seleccionar Dataframe                                        *" << endl;
-	cout << "                         *        3.- Mostrar Dataframe                                            *" << endl;
-	cout << "                         *        4.- Filtrar Dataframe                                            *" << endl;
-	cout << "                         *        5.- Indexar Dataframe                                            *" << endl;
-	cout << "                         *        6.- Escribir Dataframe                                           *" << endl;
-	cout << "                         *        7.- Seleccionar DF por columnas                                  *" << endl;
-	cout << "                         *        8.- Ordenar DF                                                   *" << endl;
-	cout << "                         *        9.- Buscar fila                                                  *" << endl;
-	cout << "                         *                                                                         *" << endl;
-	cout << "                         *        10.- Salir                                                        *" << endl;
-	cout << "                         *                                                                         *" << endl;
-	cout << "                         *                                                                         *" << endl;
-	cout << "                         ***************************************************************************" << endl;
+	cout << "Se ha creado un nuevo Dataframe" << endl;
+	Console::ForegroundColor = ConsoleColor::Red;
 }
 void mostrarIndx(Controladora*& control, int seleccionado) {
+	if (seleccionado == 0) {
+		return;
+	}
 	cout << "Ingrese el nombre de la columna a indexar" << endl;
 	string b; cin >> b;
 	control->indexar(seleccionado, b);
 	cout << "Se ha indexado la columna " << b << endl;
 }
 void mostrarMCarg(Controladora*& control) {
+	Console::ForegroundColor = ConsoleColor::Cyan;
 	cout << "Ingrese el nombre del archivo a cargar" << endl;
 	string b; cin >> b;
 	cout << "Ingrese el separador del archivo" << endl;
@@ -181,12 +205,17 @@ void mostrarMCarg(Controladora*& control) {
 		case '2': we = '	'; break;
 		case '3':
 		cout << "Ingrese el separador del archivo" << endl; cin >> we; break;
-		
 	}
 	control->leerDatosString(b, we);
+	Console::ForegroundColor = ConsoleColor::Red;
+	Console::Clear(); showM();
+	cout << "Se ha cargado un archivo" << endl;
 }
 void mostrarArch(Controladora*& control, int seleccionado) {
-	
+	if (seleccionado == 0) {
+		return;
+	}
+	Console::ForegroundColor = ConsoleColor::Yellow;
 	cout << "1) CSV" << endl;
 	cout << "2) TSV" << endl;
 	cout << "3) Personalizado" << endl;
@@ -201,32 +230,34 @@ void mostrarArch(Controladora*& control, int seleccionado) {
 	string f; cin >> f;
 	f += ".txt";
 	control->escribirDatos(seleccionado - 1, f, we);
+	Console::ForegroundColor = ConsoleColor::Red;
+	Console::Clear(); showM(); cout << "Se ha creado un archivo" << endl;
 }
 void main() {
 	Controladora* control = new Controladora();
 	int opcion = 0;
+	Console::ForegroundColor = ConsoleColor::Red;
 	showM();
-	int seleccionado;
+	int seleccionado = 0;
 	do {
 		cin >> opcion;
+		Console::Clear(); showM();
 		switch (opcion) {
-		case 1: mostrarMCarg(control); opcion = 0; break;
-		case 2: control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; opcion = 0; break;
-		case 3: control->mostrar(seleccionado); opcion = 0; break;
-		case 4: mostrarFiltro(control,seleccionado); opcion = 0; break;
-		case 5: mostrarIndx(control,seleccionado); opcion = 0; break;
-		case 6: mostrarArch(control,seleccionado); opcion = 0; break;
-		case 7: mostrarMSelec(control, seleccionado); opcion = 0; break;
-		case 8: mostrarMOrd(control, seleccionado); opcion = 0; break;
-		case 9: buscarfila(control, seleccionado);  opcion = 0; break;
+		case 1: mostrarMCarg(control);  break;
+		case 2: control->ListarDF(); cout << endl; cout << "Seleccione un DF" << endl; cin >> seleccionado; Console::Clear(); showM(); cout << "Dataframe seleccionado" << endl; break;
+		case 3: control->mostrar(seleccionado); break;
+		case 4: mostrarFiltro(control,seleccionado); break;
+		case 5: mostrarIndx(control,seleccionado); break;
+		case 6: mostrarArch(control, seleccionado); break;
+		case 7: mostrarMSelec(control, seleccionado); break;
+		case 8: mostrarMOrd(control, seleccionado); break;
+		case 9: buscarfila(control, seleccionado);  break;
 		case 10: exit(0);
 		default: opcion = 0; break;
 		}
+		
+		opcion = 0;
 	} while (opcion == 0);
-
-	//control->leerDatos();
-
-	_getch();
 }
 
 

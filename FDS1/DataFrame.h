@@ -84,7 +84,7 @@ public:
 	DataFrame* select(vector<string> colNames) {
 		map<string, Column*>* nCols = new map<string, Column*>;
 		DataFrame* nDF = new DataFrame(nCols);
-		nDF->setNomb(colNames);
+		nDF->setNombres(colNames);
 		for (auto cn : colNames) {
 			nDF->Columnas->at(cn) = Columnas->at(cn);
 		}

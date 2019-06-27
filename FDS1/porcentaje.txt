@@ -1,0 +1,4 @@
+N%Year%Numero%Nombre%Nombre1%
+26%1953%24%Audrey Hepburn%Roman Holiday%
+28%1955%48%Anna Magnani%The Rose Tattoo%
+35%1962%31%Anne Bancroft%The Miracle Worker%

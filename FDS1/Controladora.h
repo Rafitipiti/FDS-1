@@ -1,5 +1,4 @@
 #pragma once
-
 #include "DataFrame.h"
 #include <fstream>
 #include <iostream>
@@ -9,7 +8,7 @@
 #include "Row.h"
 
 using namespace std;
-
+using namespace System;
 
 class Controladora {
 private:
@@ -61,7 +60,12 @@ public:
 		DataFrames.push_back(a);
 	}
 	void mostrar(int f) {
+		if (f == 0) {
+			return;
+		}
+		Console::ForegroundColor = ConsoleColor::Green;
 		mostrarDataFrame(DataFrames[f-1]);
+		Console::ForegroundColor = ConsoleColor::Red;
 	}
 	void ListarDF() {
 		cout << "-------------------------------------------" << endl;
