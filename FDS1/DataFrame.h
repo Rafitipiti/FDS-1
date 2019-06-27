@@ -69,7 +69,6 @@ public:
 		map<string, Column*>* nCols = new map<string, Column*>;
 		DataFrame* nDF = new DataFrame(nCols);
 		nDF->setNombres(colNames);
-		cout << "BIEN" << endl;
 		for (auto cn : colNames) {
 			nDF->Columnas->at(cn) = Columnas->at(cn);
 		}

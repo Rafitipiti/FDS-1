@@ -6,3 +6,4 @@ N,Year,Numero,Nombre,Nombre1
 5,1932,32,Mary Pickford,The Sin of Madelon Claudet
 6,1933,26,Mary Pickford,Morning Glory
 7,1934,31,Claudette Colbert,It Happened One Night
+6,1933,26,Zary Pickford,Morning Glory

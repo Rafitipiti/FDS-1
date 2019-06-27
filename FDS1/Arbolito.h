@@ -9,6 +9,7 @@ template<typename T, typename R = T>
 class AVLTree {
 	struct Node {
 		T e;
+		vector<T> iguales;
 		Node* R;
 		Node* L;
 		int altura;
@@ -35,6 +36,9 @@ class AVLTree {
 			inOrder(a->L,f);
 		
 			(*f).push_back(a->e);
+			if (a->iguales.size() != 0) {
+				for(auto wi : a->iguales) (*f).push_back(wi);
+			}
 			inOrder(a->R,f);
 		}
 	}
@@ -83,6 +87,10 @@ class AVLTree {
 				a = new Node(e);
 				return;
 			}
+			else if (key(e) == key(a->e)) {
+				a->iguales.push_back(e);
+				return;
+			}
 			else if (key(e) < key(a->e)) {
 				add(e, a->L);
 			}
@@ -93,6 +101,10 @@ class AVLTree {
 		else {
 			if (a == nullptr) {
 				a = new Node(e);
+				return;
+			}
+			else if (key(e) == key(a->e)) {
+				a->iguales.push_back(e);
 				return;
 			}
 			else if (key(e).compare(key(a->e)) == -1) {
@@ -131,6 +143,7 @@ class AVLTree {
 			}
 			else {
 				aux->push_back(a->e);
+				for(auto f : a->iguales) aux->push_back(f);
 				return;
 			}
 		}
@@ -144,6 +157,7 @@ class AVLTree {
 			}
 			else {
 				aux->push_back(a->e);
+				for (auto f : a->iguales) aux->push_back(f);
 				return;
 			}
 		}
