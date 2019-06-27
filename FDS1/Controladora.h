@@ -88,6 +88,37 @@ public:
 			cout << endl;
 		}
 	}
+	/*
+	void mostrarDataFrame(DataFrame* w) {
+		vector<string> a = w->getNombres();
+		int b = 0;
+		for (auto f : a) { 
+			if (b == 6) {
+				cout << "....." << endl;
+				break;
+			}
+			cout << f << " ";
+			b++;
+		}
+		cout << endl;
+		b = 0;
+		for (auto r : *w) {
+			if (b == 15) {
+				cout << "..." << endl;
+				break;
+			}
+			for (int i = 0; i < a.size(); i++) {
+				if (i == 6) {
+					cout << ".....";
+					break;
+				}
+				cout << r->getData(a[i]) << " ";
+			}
+			b++;
+			cout << endl;
+		}
+	}
+	*/
 	void mostrarF(vector<Row*>* w, DataFrame* a) {
 		vector<string> f = a->getNombres();
 		if (w->size() == 0) {
