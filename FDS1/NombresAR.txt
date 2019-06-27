@@ -1,0 +1,19 @@
+N	Year	Numero	Nombre	Nombre1	
+2	1929	37	Mary Pickford	Coquette	
+3	1930	28	Norma Shearer	The Divorcee	
+4	1931	63	Marie Dressler	Min and Bill	
+6	1933	26	Katharine Hepburn	Morning Glory	
+15	1942	38	Greer Garson	Mrs.Miniver	
+30	1957	28	Joanne Woodward	The Three Faces of Eve	
+31	1958	41	Susan Hayward	I Want to Live!	
+40	1967	60	Katharine Hepburn	Guess Who's Coming to Dinner	
+41	1968	61	Katharine Hepburn	The Lion in Winter	
+42	1969	26	Barbra Streisand	Funny Girl	
+55	1982	74	Katharine Hepburn	On Golden Pond	
+60	1987	21	Marlee Matlin	Children of a Lesser God	
+69	1996	49	Susan Sarandon	Dead Man Walking	
+73	2000	25	Hilary Swank	Boys Don't Cry	
+77	2004	28	Charlize Theron	Monster	
+78	2005	30	Hilary Swank	Million Dollar Baby	
+81	2008	32	Marion Cotillard	La Vie en rose	
+89	2016	26	Brie Larson	Room	

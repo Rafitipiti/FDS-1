@@ -20,7 +20,11 @@ public:
 	Controladora() {
 		
 	}
-
+	~Controladora() {
+		for (auto a : DataFrames) {
+			delete a;
+		}
+	}
 	void leerDatosString(string b, char c) {
 		nombresDFS.push_back(b);
 		b += ".txt";

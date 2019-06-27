@@ -16,6 +16,21 @@ public:
 		Columnas = new map<string, Column*>;
 		Filas = new vector<Row*>;
 	}
+	~DataFrame() {
+		for (auto a : *Filas) {
+			delete a;
+		}
+		delete Filas;
+		for (auto b : nombres) {
+			delete (*Columnas)[b];
+		}
+		delete Columnas;
+		for (auto c : nombres) {
+			if (ConsultarIndx(c)) {
+				delete arboles[c];
+			}
+		}
+	}
 	void setNombres(vector<string> nms) {
 		nombres = nms;
 		for (int i = 0; i < nombres.size(); i++) {
