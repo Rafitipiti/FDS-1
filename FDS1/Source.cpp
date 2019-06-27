@@ -148,7 +148,8 @@ void buscarfila(Controladora*& control, int seleccionado) {
 	cout << "Ingrese el nombre de la columna por la cual desea buscar" << endl;
 	cin >> n;
 	cout << "Ingrese elemento a buscar" << endl;
-	cin >> elem;
+	getline(cin, elem);
+	getline(cin, elem);
 	control->buscarf(seleccionado, n, elem);
 	return;
 }
