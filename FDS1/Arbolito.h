@@ -120,6 +120,34 @@ class AVLTree {
 		buscar(a->L, b,aux);
 		buscar(a->R, b,aux);
 	}
+	void buscarr(Node* a, T b, vector<T>*& aux) {
+		if (tipo == 'n') {
+			if (a == nullptr) return;
+			else if (key(a->e) < key(b)) {
+				buscarr(a->R, b, aux);
+			}
+			else if (key(a->e) > key(b)) {
+				buscarr(a->L, b, aux);
+			}
+			else {
+				aux->push_back(a->e);
+				return;
+			}
+		}
+		else {
+			if (a == nullptr) return;
+			else if (key(a->e).compare(key(b)) == -1) {
+				buscarr(a->R, b, aux);
+			}
+			else if (key(a->e).compare(key(b)) == 1) {
+				buscarr(a->L, b, aux);
+			}
+			else {
+				aux->push_back(a->e);
+				return;
+			}
+		}
+	}
 public:
 
 	AVLTree(function<R(T)> key = [](T a) { return a; }) : key(key), l(0), root(nullptr) {
@@ -152,9 +180,9 @@ public:
 			tipo = 'n';
 		}
 	}
-	vector<Row*>* Buscar(string a) {
+	vector<Row*>* Buscar(Row* a) {
 		vector<Row*>* aux = new vector<Row*>;
-		buscar(root, a, aux);
+		buscarr(root, a, aux);
 		return aux;
 	}
 };
